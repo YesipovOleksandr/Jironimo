@@ -1,3 +1,25 @@
 {
-
+  "rules": [
+    {
+      "name": "default",
+      "controller": "Home",
+      "action": "Index",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": ""
+    },
+    {
+      "name": "privacy",
+      "controller": "Home",
+      "action": "Privacy",
+      "languages": [
+        "en"
+      ],
+      "url": "privacy"
+    },
+  ]
 }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Jironimo.Common.Models.Routing
 {
-    internal class RoutesSet
+    public class RoutesSet
     {
+        public List<ApiRoute.Rule> Rules { get; set; }
+        public string Group { get; set; }
     }
 }

@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Jironimo.Dependencies\Jironimo.Dependencies.csproj" />
+  </ItemGroup>
+
 </Project>

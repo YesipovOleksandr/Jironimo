@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Jironimo.Common\Jironimo.Common.csproj" />
+  </ItemGroup>
+
 </Project>

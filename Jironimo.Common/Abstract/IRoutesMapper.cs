@@ -1,4 +1,4 @@
-﻿using Jironimo.Common.Models.Routing.ApiRoute;
+﻿using Jironimo.Common.Models.Routing;
 using Microsoft.AspNetCore.Routing;
 
 namespace Jironimo.Common.Abstract
