@@ -4,23 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Jironimo.Web</title>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/Jironimo.Web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Heder.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Footer.css" asp-append-version="true" />
+    @RenderSection("Styles", false)
 </head>
 <body>
-<h1>Header</h1>
+    @await Html.PartialAsync("/Views/Shared/Header/_Header.cshtml")
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        @RenderBody()
     </div>
+    @await Html.PartialAsync("~/Views/Shared/Footers/_Footer.cshtml")
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2022 - Jironimo.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
