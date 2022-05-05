@@ -1,2 +1,16 @@
-﻿
-<h1>Footer</h1>
+﻿@using resources = Jironimo.Web.Resources.SharedResource;
+
+<footer>
+   <div class="footer_box">
+    <a class="btn_footer">
+        @resources.ToTop
+    <img class="imgbtn" src="./icons/upArrow.svg" />
+        </a>
+    </div>
+    
+    <div class="footer_text">
+    <p class="footer_name">
+       @resources.footerName
+    </p>
+    </div>
+</footer>

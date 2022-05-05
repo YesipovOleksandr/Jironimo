@@ -3,7 +3,7 @@
     {
       "name": "default",
       "controller": "Home",
-      "action": "Index",
+      "action": "MainPage",
       "languages": [
         "en",
         "fr",
@@ -11,15 +11,6 @@
         "it"
       ],
       "url": ""
-    },
-    {
-      "name": "privacy",
-      "controller": "Home",
-      "action": "Privacy",
-      "languages": [
-        "en"
-      ],
-      "url": "privacy"
     },
   ]
 }
