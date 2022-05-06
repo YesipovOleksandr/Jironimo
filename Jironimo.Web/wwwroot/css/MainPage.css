@@ -3,3 +3,23 @@
     height: 100vh;
     
 }
+
+.large_text{
+
+}
+
+.mini_text{
+
+}
+
+.grey_square{
+
+}
+
+.pink_square {
+    background: url("/images/pink.jfif") no-repeat;
+    background-size:cover;
+    width: 360px;
+    height: 360px;
+    opacity:50%;
+}
