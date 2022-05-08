@@ -1,14 +1,31 @@
+using Jironimo.BLL.Services;
 using Jironimo.Common.Abstract;
+using Jironimo.Common.Abstract.Repository;
+using Jironimo.Common.Abstract.Services;
+using Jironimo.DAL.Context;
+using Jironimo.DAL.MappingProfile;
+using Jironimo.DAL.Repository;
 using Jironimo.Dependencies;
+using Jironimo.Web.MappingProfile;
 using Jironimo.Web.Providers;
 using Microsoft.AspNetCore.Localization;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+
+});
+
+builder.Services.AddAutoMapper(typeof(WebMappingProfile),typeof(DataAccessMapingProfile));
 builder.Services.AddControllersWithViews();
 
 builder.Services.RegisterDependencyModules();
+builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
 
 var app = builder.Build();
 

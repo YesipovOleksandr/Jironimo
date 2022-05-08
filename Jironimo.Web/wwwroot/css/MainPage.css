@@ -1,6 +1,6 @@
 ﻿.black_fon {
     background-color: #131313;
-    height: 100vh;
+    height: 108vh;
     
 }
 
@@ -12,14 +12,28 @@
 
 }
 
-.grey_square{
-
+.grey_square {
+    background: url("/images/grey.png") no-repeat;
+    background-size: cover;
+    width: 540px;
+    height: 540px;
+   
+    border-radius: 48px;
+    position: absolute;
+    right: 23%;
+    top: 25%;
+    z-index:1;
 }
 
 .pink_square {
     background: url("/images/pink.jfif") no-repeat;
-    background-size:cover;
+    background-size: cover;
     width: 360px;
     height: 360px;
-    opacity:50%;
+    opacity: 50%;
+    border-radius: 36px;
+    position: absolute;
+    right: 15%;
+    top: 70%;
+    z-index:0;
 }

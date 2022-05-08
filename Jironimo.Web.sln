@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jironimo.Common", "Jironimo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jironimo.Dependencies", "Jironimo.Dependencies\Jironimo.Dependencies.csproj", "{9B7CB50D-0053-4871-8DC1-90341DF679E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jironimo.DAL", "Jironimo.DAL\Jironimo.DAL.csproj", "{4BB88C0C-B73B-4846-A36B-E8097752A42E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jironimo.DAL", "Jironimo.DAL\Jironimo.DAL.csproj", "{4BB88C0C-B73B-4846-A36B-E8097752A42E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jironimo.Application", "Jironimo.Application\Jironimo.Application.csproj", "{6D2FA576-3B2A-4E53-A00E-A929E17FAD0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Jironimo.BLL", "Jironimo.Application\Jironimo.BLL.csproj", "{6D2FA576-3B2A-4E53-A00E-A929E17FAD0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

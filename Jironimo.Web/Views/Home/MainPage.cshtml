@@ -1,5 +1,6 @@
-﻿@using resources = Jironimo.Web.Resources.Content.MainPage;
-
+﻿@using Jironimo.Web.ViewModels
+@using resources = Jironimo.Web.Resources.Content.MainPage;
+@model List<ApplicationViewModel>
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -14,11 +15,27 @@
  <div class="mini_text">
 
  </div>
- <div class="grey_square">
+ <div class="grey_square" id="grey">
 
  </div>
- <div class="pink_square">
+ <div class="pink_square" id="pink">
  
  </div>
 </div>
 
+@foreach (var item in Model)
+{
+   <h1>@item.Title</h1> 
+    @item.Description
+   <img src="./images/Application/@item.ImagePath" alt="" />
+
+}
+
+<script>
+   var pink=document.getElementById("pink") ;
+   var grey=document.getElementById("grey") ;
+
+ window.addEventListener('scroll', function() {
+  pink.style.top=+50+ '%';
+});
+</script>
