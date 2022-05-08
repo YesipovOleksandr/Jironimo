@@ -2,6 +2,7 @@ using Jironimo.BLL.Services;
 using Jironimo.Common.Abstract;
 using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
+using Jironimo.Common.Concrete;
 using Jironimo.DAL.Context;
 using Jironimo.DAL.MappingProfile;
 using Jironimo.DAL.Repository;
@@ -26,6 +27,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.RegisterDependencyModules();
 builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
+
+builder.Services.AddScoped<IHasher, Hasher>();
+
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 
 var app = builder.Build();
 

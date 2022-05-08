@@ -22,8 +22,7 @@ namespace Jironimo.Web.Controllers
 
         public IActionResult MainPage()
         {
-            var applications = _mapper.Map <List<ApplicationViewModel>>(_applicationService.GetAplications());
-
+            var applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
             return View(applications);
         }
 

@@ -12,5 +12,17 @@
       ],
       "url": ""
     },
+    {
+      "name": "account",
+      "controller": "Account",
+      "action": "Create",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "create"
+    }
   ]
 }
