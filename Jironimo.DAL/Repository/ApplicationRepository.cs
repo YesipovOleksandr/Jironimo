@@ -26,8 +26,9 @@ namespace Jironimo.DAL.Repository
 
         public List<Application> Get()
         {
-            var list = _context.Applications.Select(x => new Application(x.Title, x.Description, x.ImagePath, x.PositionRight)).ToList();
-            return list;
+            var applicationsEntity = _context.Applications.ToList();
+            var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
+            return applicationsList;
         }
     }
 }

@@ -8,8 +8,7 @@ namespace Jironimo.DAL.MappingProfile
     {
         public DataAccessMapingProfile()
         {
-            CreateMap<Application, Entities.Application>();
-
+            CreateMap<Application, Entities.Application>().ReverseMap();
             CreateMap<Entities.User, User>();
             CreateMap<User, Entities.User>();
         }
