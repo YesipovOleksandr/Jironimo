@@ -12,7 +12,9 @@ namespace Jironimo.Web.MappingProfile
         {
             CreateMap<LoginViewModel, User>();
             CreateMap<UserViewModel, User>();
-            CreateMap<Application, ApplicationViewModel>();
+            CreateMap<Category, CategoryViewModel>();
+            CreateMap<Application, ApplicationViewModel>()
+                .ForMember(dest => dest.CategoryName, act => act.MapFrom(src => src.Category.Name));
         }
     }
 }

@@ -15,7 +15,7 @@ namespace Jironimo.BLL.Services
 
         public List<Application> GetAplications()
         {
-           return _applicationRepository.Get();
+           return _applicationRepository.GetAll();
         }
     }
 }

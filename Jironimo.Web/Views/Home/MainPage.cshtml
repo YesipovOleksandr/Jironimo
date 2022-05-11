@@ -1,4 +1,5 @@
-﻿@using Jironimo.Web.ViewModels
+﻿
+@using Jironimo.Web.ViewModels
 @using Jironimo.Web.Helper
 @using resources = Jironimo.Web.Resources.Content.MainPage;
 @model List<ApplicationViewModel>
@@ -6,6 +7,7 @@
     ViewData["Title"] = "Home Page";
 }
 @section Styles{
+
 <link rel="stylesheet" href="~/css/MainPage.css" asp-append-version="true" />
 }
 
@@ -31,10 +33,10 @@
     @foreach (var item in Model)
     {
         <div class="application">
-            <div class="application_block @(item.PositionRight?"left":"right")">
+            <div class="application_block @(item.PositionRight?"left":"right block_right")">
                 <div class="application_data">
                     <span>
-                        iOS App - @Datetime.GetCreatedAt(item.CreatedAt)
+                         @item.CategoryName - @Datetime.GetCreatedAt(item.CreatedAt)
                     </span>
                 </div>
                 <div class="application_title">

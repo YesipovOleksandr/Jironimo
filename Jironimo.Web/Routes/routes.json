@@ -23,6 +23,18 @@
         "it"
       ],
       "url": "create"
+    },
+    {
+      "name": "work",
+      "controller": "Home",
+      "action": "Work",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "work"
     }
   ]
 }

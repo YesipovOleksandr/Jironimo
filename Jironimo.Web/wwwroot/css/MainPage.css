@@ -1,7 +1,7 @@
-﻿.black_fon {
+﻿
+.black_fon {
     background-color: #131313;
     height: 108vh;
-    
 }
 
 .large_text {
@@ -85,15 +85,21 @@
     color: #0F0F0F;
     width: 380px;
     height: 44px;
+    padding-top:10px;
+    padding-bottom:10px;
 }
 
 .application_description {
     font-size: 22px;
     font-weight: 400;
     line-height: 30.8px;
-    color:#0F0F0F;
-    width:461px;
-    height:124px;
+    color: #0F0F0F;
+    width: 461px;
+    height: 99px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow-y: hidden;
 }
 
 .application_view {
@@ -117,13 +123,18 @@
 }
 
 .application_image {
-  width:60%;
+  width:55%;
 }
 
 .right {
     float: right;
+  
 }
 
 .left{
     float:left;
+}
+
+.block_right{
+    padding-left:10px;
 }

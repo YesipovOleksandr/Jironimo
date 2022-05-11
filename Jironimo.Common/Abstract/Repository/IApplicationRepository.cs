@@ -4,7 +4,7 @@ namespace Jironimo.Common.Abstract.Repository
 {
     public interface IApplicationRepository
     {
-        List<Application> Get();
+        List<Application> GetAll();
         void Add(Application application);
     }
 }

@@ -1,12 +1,15 @@
 ﻿@using resources = Jironimo.Web.Resources.SharedResource;
+@{
+    var isWorkPage = ViewContext.RouteData.Values["routeName"]?.ToString()=="work";
+}
 
-<header>
+<header class="@(isWorkPage?"background_white":"")">
     <a href="/" class="logo">
         Jironimo
     </a>
     <div class="center_menu">
         <ul class="menu_top">
-            <li><a href="#">Work</a></li>
+            <li><a href="/work">Work</a></li>
             <li><a href="#">Service</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Articles</a></li>

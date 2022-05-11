@@ -3,6 +3,7 @@ using Jironimo.Common.Abstract;
 using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Models.Aplications;
 using Jironimo.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jironimo.DAL.Repository
 {
@@ -24,9 +25,9 @@ namespace Jironimo.DAL.Repository
             _context.SaveChanges();
         }
 
-        public List<Application> Get()
+        public List<Application> GetAll()
         {
-            var applicationsEntity = _context.Applications.ToList();
+            var applicationsEntity = _context.Applications.Include(a => a.Category).ToList();
             var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
             return applicationsList;
         }

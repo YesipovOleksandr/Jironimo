@@ -11,6 +11,7 @@ namespace Jironimo.DAL.MappingProfile
             CreateMap<Application, Entities.Application>().ReverseMap();
             CreateMap<Entities.User, User>();
             CreateMap<User, Entities.User>();
+            CreateMap<Entities.Сategory, Category>();            
         }
     }
 }

@@ -1,0 +1,36 @@
+﻿.top_page{
+    margin-left:60px;
+    margin-top:60px;
+}
+.btn-group button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    background-color: transparent;
+    font-size: 80px;
+    line-height: 96px;
+    color: #5d5454;
+}
+.btn-group button:focus {
+   color:#000000;
+   text-decoration:underline;
+}
+
+.btn_ovale{
+    margin-top:30px;
+}
+
+.btn_ovale button{
+ font-size:15px;
+ font-weight:400;
+ line-height:30/8px;
+ border-radius:15px;
+ width:auto;
+ height:31px;
+ border:none;
+}
+
+.btn_ovale button:focus{
+    background:#000000;
+    color:#ffffff;
+}
