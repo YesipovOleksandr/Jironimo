@@ -17,5 +17,10 @@ namespace Jironimo.BLL.Services
         {
            return _applicationRepository.GetAll();
         }
+
+        public List<Application> GetAplicationsByCategoryId(Guid categoryId)
+        {
+            return _applicationRepository.GetByCategoryId(categoryId);
+        }
     }
 }

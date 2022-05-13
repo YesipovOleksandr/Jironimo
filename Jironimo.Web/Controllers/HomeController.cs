@@ -13,7 +13,6 @@ namespace Jironimo.Web.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IApplicationService _applicationService;
         private readonly IMapper _mapper;
-
         public HomeController(ILogger<HomeController> logger, IApplicationService applicationService, IMapper mapper, ICategoryService categoryService)
         {
             _logger = logger;
@@ -27,12 +26,34 @@ namespace Jironimo.Web.Controllers
             var applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
             return View(applications);
         }
+        public IActionResult Service()
+        {
+            return View();
+        }
 
         public IActionResult Work()
         {
-            var categories = _mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
-            return View(categories);
+            CategoryApplicationViewModel categoryApplication = new CategoryApplicationViewModel();
+            categoryApplication.Categories = new List<CategoryViewModel>();
+            categoryApplication.Categories.Add(new CategoryViewModel { Name = "All", IsActive = false });
+            categoryApplication.Categories.AddRange(_mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories()));
+
+            if (Request.Query.TryGetValue("categoryId", out var categoryId))
+            {
+                if (categoryId != "")
+                {
+                    categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplicationsByCategoryId(new Guid(categoryId)));
+                    categoryApplication.Categories = categoryApplication.Categories.Select(p => p.Id == new Guid(categoryId)
+                      ? new CategoryViewModel { Name = p.Name, IsActive = true } : p).ToList();
+                    return View(categoryApplication);
+                }
+            }
+            categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            categoryApplication.Categories[0].IsActive = true;
+
+            return View(categoryApplication);
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

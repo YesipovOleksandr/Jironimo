@@ -35,6 +35,18 @@
         "it"
       ],
       "url": "work"
+    },
+    {
+      "name": "service",
+      "controller": "Home",
+      "action": "Service",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "service"
     }
   ]
 }

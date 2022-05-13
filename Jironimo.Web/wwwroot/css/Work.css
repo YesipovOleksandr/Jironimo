@@ -10,27 +10,39 @@
     font-size: 80px;
     line-height: 96px;
     color: #5d5454;
+    cursor:pointer;
 }
 .btn-group button:focus {
    color:#000000;
    text-decoration:underline;
+
 }
 
 .btn_ovale{
     margin-top:30px;
+    
 }
 
-.btn_ovale button{
- font-size:15px;
- font-weight:400;
- line-height:30/8px;
- border-radius:15px;
- width:auto;
- height:31px;
- border:none;
-}
+    .btn_ovale a {
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 30/8px;
+        border-radius: 15px;
+        width: auto;
+        cursor: pointer;
+        background:rgba(15,15,15,0.05);
+        color: black;
+        padding:5px 28px 5px 28px;
+       
+        text-decoration:none;
+    }
 
-.btn_ovale button:focus{
+.btn_ovale a:focus{
     background:#000000;
     color:#ffffff;
+}
+
+.category_black {
+    background: #000000 !important;
+    color: #ffffff !important;
 }

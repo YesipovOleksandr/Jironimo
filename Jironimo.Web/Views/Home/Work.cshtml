@@ -1,26 +1,28 @@
 ﻿@using Jironimo.Web.ViewModels
-@model List<CategoryViewModel>
+@model CategoryApplicationViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
 @section Styles{
 <link rel="stylesheet" href="~/css/Work.css" asp-append-version="true" />
 }
+
 <div class="top_page">
 
+    <div class="btn-group">
+        <button autofocus>All,</button>
+        <button>Outsourse,</button>
+        <button>Our products</button>
+    </div>
+    <div class="btn_ovale">
+    @*    <a href="/work">All</a>*@
+        @foreach (var item in Model.Categories)
+        {
+            <a class="@(item.IsActive?"category_black":"")" href="/work/?categoryId=@item.Id">@item.Name</a>
+        }
+    </div>
+</div>
 
-<div class="btn-group">
-    <button autofocus >All,</button>
-    <button>Outsourse,</button>
-    <button>Our products</button>
-</div>
-<div class="btn_ovale">
-        <button>All</button>
-    @foreach (var item in Model)
-{
-    <button>@item.Name</button>
-}
-</div>
-</div>
 
+@await Html.PartialAsync("~/Views/Components/Content/_ApplicationSection.cshtml",@Model.Applications)
 

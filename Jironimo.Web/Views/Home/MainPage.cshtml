@@ -1,5 +1,4 @@
-﻿
-@using Jironimo.Web.ViewModels
+﻿@using Jironimo.Web.ViewModels
 @using Jironimo.Web.Helper
 @using resources = Jironimo.Web.Resources.Content.MainPage;
 @model List<ApplicationViewModel>
@@ -7,7 +6,6 @@
     ViewData["Title"] = "Home Page";
 }
 @section Styles{
-
 <link rel="stylesheet" href="~/css/MainPage.css" asp-append-version="true" />
 }
 
@@ -29,35 +27,7 @@
     </div>
 </div>
 
-<div>
-    @foreach (var item in Model)
-    {
-        <div class="application">
-            <div class="application_block @(item.PositionRight?"left":"right block_right")">
-                <div class="application_data">
-                    <span>
-                         @item.CategoryName - @Datetime.GetCreatedAt(item.CreatedAt)
-                    </span>
-                </div>
-                <div class="application_title">
-                    @item.Title
-                </div>
-                <div class="application_description">
-                    @item.Description
-                </div>
-                <div class="application_view">
-                    <a>
-                        View
-                        <img class="img_right" src="./icons/upArrowRight.svg" />
-                    </a>
-                </div>
-            </div>
-            <div class="application_image @(item.PositionRight?"right":"left")">
-                <img class="@(item.PositionRight?"right":"left")" src="./images/Application/@item.ImagePath" alt="" />
-            </div>
-        </div>
-    }
-</div>
+    @await Html.PartialAsync("~/Views/Components/Content/_ApplicationSection.cshtml")
 
 @*<script>
     var pink=document.getElementById("pink") ;

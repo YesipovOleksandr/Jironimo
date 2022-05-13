@@ -31,5 +31,12 @@ namespace Jironimo.DAL.Repository
             var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
             return applicationsList;
         }
+
+        public List<Application> GetByCategoryId(Guid categoryId)
+        {
+            var applicationsEntity = _context.Applications.Where(x => x.CategoryId == categoryId);
+            var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
+            return applicationsList;
+        }
     }
 }

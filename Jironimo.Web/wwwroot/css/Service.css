@@ -1,0 +1,35 @@
+﻿.black_block {
+    background: #131313;
+    width: 1920px;
+    height:100vh;
+}
+.title{
+   width:515px;
+   height:192px;
+   font-size:80px;
+   font-weight:600;
+   line-height:96px;
+   color:#FFFFFF;
+   margin-left:60px;
+   padding-top:60px;
+}
+.description {
+    width: 360px;
+    height: 91px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height:30.8px;
+    color: #FFFFFF;
+    margin-left: 60px;
+    padding-top:330px;
+}
+.picture_fon {
+    background: url('/images//ServiceBackgraundPhone.png');
+    background-size: cover;
+    width: 603px;
+    height:530px;
+    position: absolute;
+    left:63%;
+    top: 47%;
+  
+}

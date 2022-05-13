@@ -10,5 +10,7 @@ namespace Jironimo.Common.Abstract.Services
     public interface IApplicationService
     {
         List<Application> GetAplications();
+
+        List<Application> GetAplicationsByCategoryId(Guid categoryId);
     }
 }

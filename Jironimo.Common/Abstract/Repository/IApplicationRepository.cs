@@ -6,5 +6,6 @@ namespace Jironimo.Common.Abstract.Repository
     {
         List<Application> GetAll();
         void Add(Application application);
+        List<Application> GetByCategoryId(Guid categoryId);
     }
 }
