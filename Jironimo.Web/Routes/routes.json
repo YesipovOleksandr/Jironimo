@@ -25,6 +25,42 @@
       "url": "create"
     },
     {
+      "name": "login",
+      "controller": "Account",
+      "action": "Login",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "login"
+    },
+    {
+      "name": "login",
+      "controller": "Account",
+      "action": "Login",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "login"
+    },
+    {
+      "name": "admin",
+      "controller": "Account",
+      "action": "Admin",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin"
+    },
+    {
       "name": "work",
       "controller": "Home",
       "action": "Work",

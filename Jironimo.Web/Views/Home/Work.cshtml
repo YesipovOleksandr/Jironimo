@@ -10,19 +10,18 @@
 <div class="top_page">
 
     <div class="btn-group">
-        <button autofocus>All,</button>
-        <button>Outsourse,</button>
-        <button>Our products</button>
+        @foreach (var item in Model.TypeMarkets)
+        {
+            <button class="@(item.IsActive?"focus_market_type":"")" onclick="addParamsUrl('outSource','@item.Value')">@item.Name,</button>
+        }
     </div>
     <div class="btn_ovale">
-    @*    <a href="/work">All</a>*@
         @foreach (var item in Model.Categories)
         {
-            <a class="@(item.IsActive?"category_black":"")" href="/work/?categoryId=@item.Id">@item.Name</a>
+            <a class="@(item.IsActive?"category_black":"")" onclick="addParamsUrl('categoryId','@item.Id')">@item.Name</a>
         }
     </div>
 </div>
-
 
 @await Html.PartialAsync("~/Views/Components/Content/_ApplicationSection.cshtml",@Model.Applications)
 

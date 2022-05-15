@@ -1,4 +1,20 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+function addParamsUrl(paramKey, paramValue) {
+    var map = new Map();
+    var urlParams = new URLSearchParams(location.search);
 
-// Write your JavaScript code.
+    if (urlParams !== undefined) {
+        for (const [key, value] of urlParams) {
+            map.set(key, value);
+        }
+    }
+    if (paramValue === '') {
+        map.delete(paramKey)
+    } else {
+        map.set(paramKey, paramValue);
+    }
+
+    var queryParams = new URLSearchParams(map);
+    var baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + queryParams;
+    window.location = baseUrl;
+}

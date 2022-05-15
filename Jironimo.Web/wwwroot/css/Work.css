@@ -12,11 +12,11 @@
     color: #5d5454;
     cursor:pointer;
 }
-.btn-group button:focus {
-   color:#000000;
-   text-decoration:underline;
-
+.btn-group .focus_market_type {
+    color: #000000;
+    text-decoration: underline;
 }
+
 
 .btn_ovale{
     margin-top:30px;

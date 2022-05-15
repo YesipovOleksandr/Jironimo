@@ -7,6 +7,7 @@
         public string Description { get; set; }
         public string ImagePath { get; set; }
         public bool PositionRight { get; set; }
+        public bool OutSource { get; set; }
         public DateTime CreatedAt { get; set; }
         public Category Category { get; set; }
     }

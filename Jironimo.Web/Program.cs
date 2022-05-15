@@ -8,11 +8,17 @@ using Jironimo.DAL.MappingProfile;
 using Jironimo.DAL.Repository;
 using Jironimo.Dependencies;
 using Jironimo.Web.MappingProfile;
+using Jironimo.Web.Middlewares;
 using Jironimo.Web.Providers;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -21,7 +27,13 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
 });
 
-builder.Services.AddAutoMapper(typeof(WebMappingProfile),typeof(DataAccessMapingProfile));
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+        .AddCookie(options => //CookieAuthenticationOptions
+        {
+            options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/login");
+        });
+
+builder.Services.AddAutoMapper(typeof(WebMappingProfile), typeof(DataAccessMapingProfile));
 builder.Services.AddControllersWithViews();
 
 builder.Services.RegisterDependencyModules();
@@ -37,6 +49,7 @@ builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,6 +62,8 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+//app.UseMiddleware<TokenMiddleware>();
 
 app.UseRouting();
 
@@ -66,6 +81,7 @@ options.RequestCultureProviders = new[]
  };
 app.UseRequestLocalization(options);
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 var routesConfigurator = app.Services.GetService<IRoutesConfigurator>();
