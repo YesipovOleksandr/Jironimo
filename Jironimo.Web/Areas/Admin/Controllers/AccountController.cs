@@ -27,13 +27,13 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            return View("~/Areas/Admin/views/Login.cshtml");
+            return View("~/Areas/Admin/Views/Account/Login.cshtml");
         }
 
         [HttpGet]
         public IActionResult Admin()
         {
-            return View("~/Areas/Admin/views/Admin.cshtml");
+            return View("~/Areas/Admin/Views/Admin.cshtml");
         }
 
         [AllowAnonymous]
@@ -55,7 +55,6 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
         [HttpPost]
         public async Task<IActionResult> Create(UserViewModel model)
         {
@@ -66,7 +65,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
                 {
                     await Authenticate(model.Login); // аутентификация
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                     ModelState.AddModelError("", "Некорректные логин и(или) пароль");
@@ -86,7 +85,6 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
-
 
         public async Task<IActionResult> Logout()
         {

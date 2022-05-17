@@ -1,0 +1,54 @@
+﻿using AutoMapper;
+using Jironimo.Common.Abstract.Services;
+using Jironimo.Common.Models.Aplications;
+using Jironimo.Web.Areas.Admin.Models;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Jironimo.Web.Areas.Admin.Controllers
+{
+    public class CategoryController : Controller
+    {
+        private readonly ICategoryService _categoryService;
+        private readonly IMapper _mapper;
+
+        public CategoryController(ICategoryService categoryService, IMapper mapper)
+        {
+            _categoryService = categoryService;
+            _mapper = mapper;
+        }
+
+        public ActionResult Index()
+        {
+            CategoryCRUDViewModel categoryCRUDViewModel = new CategoryCRUDViewModel();
+            categoryCRUDViewModel.Categories = _categoryService.GetCategories();
+            return View("~/Areas/Admin/Views/Category.cshtml", categoryCRUDViewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Create(CategoryCRUDViewModel model)
+        {
+            try
+            {
+                var category = _mapper.Map<Category>(model.Category);
+                _categoryService.Create(category);
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return RedirectToAction(nameof(Index));
+            }
+        }
+
+        // GET: CategoryController/Edit/5
+        public ActionResult Edit(int id)
+        {
+            return View();
+        }
+
+        public ActionResult Delete(Guid id)
+        {
+            _categoryService.DeleteById(id);
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

@@ -29,6 +29,11 @@ namespace Jironimo.Web.Controllers
         }
         public IActionResult Service()
         {
+            var applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            return View(applications);
+        }
+        public IActionResult About()
+        {
             return View();
         }
 
@@ -71,7 +76,6 @@ namespace Jironimo.Web.Controllers
                     categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplicationsByCategoryId(new Guid(categoryId)));
                     categoryApplication.Categories = categoryApplication.Categories.Select(p => p.Id == new Guid(categoryId)
                       ? new CategoryViewModel { Name = p.Name, IsActive = true } : p).ToList();
-
 
                     categoryApplication.TypeMarkets[0].IsActive = true;
 

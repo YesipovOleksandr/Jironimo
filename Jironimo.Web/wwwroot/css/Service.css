@@ -33,3 +33,179 @@
     top: 47%;
   
 }
+
+.technology{
+margin:60px;
+
+}
+
+.sub_title {
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 96px;
+    color:#0F0F0F;
+
+}
+
+.platform_text {
+    margin-top: 40px;
+    font-size: 36px;
+    line-height: 44px;
+    color: #0F0F0F;
+    font-weight:400;
+}
+
+.description_text {
+    margin-top:20px;
+    font-size: 26px;
+    line-height: 41px;
+    color:#575757;
+    font-weight:200;
+    width:1000px;
+}
+
+.technology_block{
+    display:flex;
+    margin-top:40px;
+    
+}
+
+.flutter {
+    width: 240px;
+    height: 240px;
+    border: 2px solid #EEEEEE;
+    display: flex;
+     flex-direction:column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.flutter_img {
+    width: 82px;
+    height: 100px;
+}
+
+.fluter_signature{
+    font-weight:400;
+    font-size:26px;
+    line-height:41px;
+    width:82px;
+    height:42px;
+    padding-left:30px;
+    padding-top:20px;
+}
+
+.react {
+    width: 240px;
+    height: 240px;
+    border: 2px solid #EEEEEE;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.react_img {
+    width: 100px;
+    height: 90px;
+   
+}
+
+.react_signature {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 41px;
+    width: 158px;
+    height: 42px;
+    padding-left:30px;
+    padding-top:20px;
+   
+  
+}
+
+.native_technologi {
+    margin: 60px;
+}
+
+.native_title {
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 96px;
+    color: #0F0F0F;
+}
+
+.native_description {
+    margin-top: 20px;
+    font-size: 26px;
+    line-height: 41px;
+    color: #575757;
+    font-weight: 200;
+    width: 1000px;
+}
+
+.technology_block2 {
+    display: flex;
+    margin-top: 40px;
+}
+.kotlin {
+    width: 240px;
+    height: 240px;
+    border: 2px solid #EEEEEE;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.kotlin_img {
+    width: 100px;
+    height: 100px;
+}
+
+.kotlin_signature {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 41px;
+    width: 158px;
+    height: 42px;
+    padding-left:82px;
+    padding-top: 20px;
+}
+
+.swift {
+    width: 240px;
+    height: 240px;
+    border: 2px solid #EEEEEE;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.swift_img {
+    width: 100px;
+    height: 90px;
+}
+
+.swift_signature {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 41px;
+    width: 158px;
+    height: 42px;
+    padding-left: 30px;
+    padding-top: 20px;
+    padding-left:100px;
+}
+
+.other_works_title {
+    font-weight: 600;
+    font-size: 80px;
+    color: #0F0F0F;
+    margin-left:60px;
+    margin-top:100px;
+}

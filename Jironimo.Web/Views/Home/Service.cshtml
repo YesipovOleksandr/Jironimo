@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ApplicationViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 @section Styles{
@@ -14,22 +15,50 @@
             Madlab creates stunning iOS Apps that make business thrive, even in highly competitive markets.
         </div>
         <div class="picture_fon">
-        
-        </div>
-    <div>
-        <div>
-            What we do
-        </div>
-        <div>
-            Cross-platform app development
-        </div>
-        <div>
-            We create cross-platform mobile applications. Boasting a shorter time to market, cross-platform apps run on multiple devices and operating systems.
-        </div>
-        <div>
-            <div></div>
-            <div></div>
         </div>
     </div>
-   
+    <div class="technology">
+        <div class="sub_title">
+            What we do
+        </div>
+        <div class="platform_text">
+            Cross-platform app development
+        </div>
+        <div class="description_text">
+            We create cross-platform mobile applications. Boasting a shorter time to market, cross-platform apps run on multiple devices and operating systems.
+        </div>
+        <div class="technology_block">
+            <div class="flutter">
+                <img class="flutter_img" src="./images/Service/flutter.png" />
+                <span class="fluter_signature">Flutter</span>
+
+            </div>
+            <div class="react">
+                <img class="react_img" src="./images/Service/react.png" />
+                <span class="react_signature">React Native</span>
+            </div>
+        </div>
+    </div>
+    <div class="native_technologi">
+        <div class="native_title">
+            Native app development
+        </div>
+        <div class="native_description">
+            We create mobile apps for specific platforms, including iOS and Android.
+        </div>
+        <div class="technology_block2">
+            <div class="kotlin">
+                <img class="kotlin_img" src="~/images/Service/kotlin.png" />
+                <span class="kotlin_signature">Kotlin</span>
+            </div>
+            <div class="swift">
+                <img class="swift_img" src="~/images/Service/swift.png" />
+                <span class="swift_signature">Swift</span>
+            </div>
+        </div>
+    </div>
+    <h1 class="other_works_title">
+        Other works
+    </h1>
 </div>
+@await Html.PartialAsync("~/Views/Components/Content/_ApplicationSection.cshtml",@Model)

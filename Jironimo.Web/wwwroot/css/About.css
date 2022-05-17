@@ -1,0 +1,21 @@
+﻿.black_block {
+    background: #131313;;
+    height:100vh;
+}
+.about {
+    font-size: 80px;
+    font-weight:600;
+    color:#FFFFFF;
+    line-height:96px;
+    margin-left:60px;
+    padding-top:50px;
+}
+.discription {
+    font-size: 22px;
+    font-weight:300;
+    color: #FFFFFF;
+    line-height:30px;
+    margin-left: 60px;
+    margin-top:420px;
+    width:350px;
+}

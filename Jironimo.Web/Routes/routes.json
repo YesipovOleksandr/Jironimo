@@ -83,6 +83,66 @@
         "it"
       ],
       "url": "service"
+    },
+    {
+      "name": "logout",
+      "controller": "Account",
+      "action": "Logout",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "logout"
+    },
+    {
+      "name": "index",
+      "controller": "Category",
+      "action": "Index",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/category"
+    },
+    {
+      "name": "create",
+      "controller": "Category",
+      "action": "Create",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/category/create"
+    },
+    {
+      "name": "about",
+      "controller": "Home",
+      "action": "About",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "about"
+    },
+    {
+      "name": "delete",
+      "controller": "Category",
+      "action": "Delete",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/category/delete/"
     }
   ]
 }
