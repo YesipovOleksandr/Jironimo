@@ -21,7 +21,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         {
             CategoryCRUDViewModel categoryCRUDViewModel = new CategoryCRUDViewModel();
             categoryCRUDViewModel.Categories = _categoryService.GetCategories();
-            return View("~/Areas/Admin/Views/Category.cshtml", categoryCRUDViewModel);
+            return View("~/Areas/Admin/Views/Category/Category.cshtml", categoryCRUDViewModel);
         }
 
         [HttpPost]

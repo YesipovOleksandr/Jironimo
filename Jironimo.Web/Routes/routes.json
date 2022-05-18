@@ -133,6 +133,18 @@
       "url": "about"
     },
     {
+      "name": "contact",
+      "controller": "Home",
+      "action": "Contact",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "contact"
+    },
+    {
       "name": "delete",
       "controller": "Category",
       "action": "Delete",
@@ -143,6 +155,18 @@
         "it"
       ],
       "url": "admin/category/delete/"
+    },
+    {
+      "name": "appcliation",
+      "controller": "Application",
+      "action": "Index",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/application"
     }
   ]
 }

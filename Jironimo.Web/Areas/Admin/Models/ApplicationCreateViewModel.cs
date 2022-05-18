@@ -1,6 +1,6 @@
-﻿namespace Jironimo.Common.Models.Aplications
+﻿namespace Jironimo.Web.Areas.Admin.Models
 {
-    public class Application
+    public class ApplicationCreateViewModel
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
@@ -8,9 +8,6 @@
         public string ImagePath { get; set; }
         public bool PositionRight { get; set; }
         public bool OutSource { get; set; }
-        public DateTime CreatedAt { get; set; }
         public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
     }
 }
-
