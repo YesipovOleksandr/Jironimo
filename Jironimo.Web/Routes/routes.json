@@ -73,6 +73,18 @@
       "url": "work"
     },
     {
+      "name": "applicationDetails",
+      "controller": "Home",
+      "action": "ApplicationDetails",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "applicationDetails"
+    },
+    {
       "name": "service",
       "controller": "Home",
       "action": "Service",
@@ -167,6 +179,18 @@
         "it"
       ],
       "url": "admin/application"
+    },
+    {
+      "name": "applicationCreate",
+      "controller": "Application",
+      "action": "Create",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/application/create"
     }
   ]
 }

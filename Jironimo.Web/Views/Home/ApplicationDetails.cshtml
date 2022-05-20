@@ -1,0 +1,63 @@
+﻿@model List<ApplicationDetailsViewModel>
+@using Jironimo.Common.Models.Aplications;
+@{
+    ViewData["Title"] = "Home Page";
+}
+@section Styles{
+<link rel="stylesheet" href="~/css/ApplicationDetails.css" asp-append-version="true" />
+}
+
+@foreach (var item in Model)
+{
+    if (item.PositionImage == PositionImage.full && item.Title != null && item.Description != null)
+    {
+        <div class="img_full_information">
+            <div class="img_full">
+                <img src="/images/ApplicationDetails/@item.ImagePath" />
+            </div>
+            <div class="general_block">
+                <div class="titlle_full">
+                    @item.Title
+                </div>
+                <div class="data_cost">
+                    <div class="data_full">
+                        Mobile - Mar 15th, 2021
+                    </div>
+                    <div class="cost_full">
+                        Cost of a similar project ≈ $5000
+                    </div>
+                </div>
+                <div class="discription_full">
+                    @item.Description
+                    <div class="links_full">
+                        <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                        <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else if (item.PositionImage == PositionImage.full)
+    {
+        <div class="img_full_block">
+            <img src="/images/ApplicationDetails/@item.ImagePath" />
+        </div>
+    }
+    else if (item.PositionImage == PositionImage.twoImage)
+    {
+        <div class="two_pictures">
+            <img src="/images/ApplicationDetails/@item.ImagePath" />
+            <img src="/images/ApplicationDetails/@item.ImagePathTwo" />
+        </div>
+    }
+    else if (item.PositionImage == PositionImage.right)
+    {
+        <h1>PositionImage.right</h1>
+        <img src="/images/ApplicationDetails/@item.ImagePath" />
+    }
+    else if (item.PositionImage == PositionImage.left)
+    {
+        <h1>PositionImage.left</h1>
+        <img src="/images/ApplicationDetails/@item.ImagePath" />
+    }
+}

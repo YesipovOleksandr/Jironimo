@@ -18,11 +18,10 @@ namespace Jironimo.DAL.Repository
             _mapper = mapper;
         }
 
-        public void Add(Application application)
+        public void Create(Application application)
         {
             var newApplication = _mapper.Map<Entities.Application>(application);
             _context.Add(newApplication);
-            _context.SaveChanges();
         }
 
         public List<Application> GetAll()
@@ -37,6 +36,30 @@ namespace Jironimo.DAL.Repository
             var applicationsEntity = _context.Applications.Where(x => x.CategoryId == categoryId);
             var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
             return applicationsList;
+        }
+        public void Save()
+        {
+            _context.SaveChanges();
+        }
+
+        private bool disposed = false;
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    _context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

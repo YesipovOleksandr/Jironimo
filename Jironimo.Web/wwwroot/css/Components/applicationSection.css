@@ -50,10 +50,15 @@
     text-align: center;
 }
 
-.img_right {
-    width: 15px;
-    height: 15px;
-}
+    .application_view a {
+        color: #107EFF;
+        text-decoration:none;
+    }
+
+    .img_right {
+        width: 15px;
+        height: 15px;
+    }
 
 .application_image img {
     width: 100%;

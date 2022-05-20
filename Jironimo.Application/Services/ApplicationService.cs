@@ -13,6 +13,15 @@ namespace Jironimo.BLL.Services
             _applicationRepository = applicationRepository;
         }
 
+        public void Create(Application application)
+        {
+            if (application != null)
+            {
+                _applicationRepository.Create(application);
+                _applicationRepository.Save();
+            }
+        }
+
         public List<Application> GetAplications()
         {
            return _applicationRepository.GetAll();

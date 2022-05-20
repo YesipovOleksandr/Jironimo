@@ -11,9 +11,10 @@
     line-height: 76.8px;
     height: 231px;
     position: absolute;
-    right: 45%;
+    right: 49%;
     top: 25%;
     z-index: 2;
+    max-width:600px;
 }
 
 .mini_text {

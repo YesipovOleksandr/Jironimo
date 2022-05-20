@@ -13,6 +13,7 @@ namespace Jironimo.DAL.MappingProfile
             CreateMap<User, Entities.User>();
             CreateMap<Entities.Category, Category>();
             CreateMap<Category,Entities.Category>();
+            CreateMap<ApplicationDetails, Entities.ApplicationDetails>().ReverseMap();           
         }
     }
 }

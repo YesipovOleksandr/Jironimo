@@ -15,6 +15,7 @@
   <ItemGroup>
     <Folder Include="wwwroot\icons\" />
     <Folder Include="wwwroot\images\About\" />
+    <Folder Include="wwwroot\images\ApplicationDetails\" />
     <Folder Include="wwwroot\images\Service\" />
   </ItemGroup>
 

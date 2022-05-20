@@ -48,7 +48,8 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
-
+builder.Services.AddScoped<IApplicationDetaisRepository, ApplicationDetaisRepository>();
+builder.Services.AddScoped<IApplicationDetaisService, ApplicationDetaisService>();
 
 var app = builder.Build();
 

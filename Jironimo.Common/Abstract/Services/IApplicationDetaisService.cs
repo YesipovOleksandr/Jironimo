@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Jironimo.Common.Abstract.Services
 {
-    public interface IApplicationService
+    public interface IApplicationDetaisService
     {
-        void Create(Application application);
-        List<Application> GetAplications();
-        List<Application> GetAplicationsByCategoryId(Guid categoryId);
+        List<ApplicationDetails> GetAplicationsDetailsById(Guid applicationId);
     }
 }

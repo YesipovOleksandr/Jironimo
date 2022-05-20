@@ -12,14 +12,20 @@ namespace Jironimo.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService _categoryService;
         private readonly IApplicationService _applicationService;
+        private readonly IApplicationDetaisService _applicationDetaisService;
         private readonly IMapper _mapper;
         private readonly List<TypeMarketViewModel> _typeMarketListViewModel = new List<TypeMarketViewModel>() { new TypeMarketViewModel { Name = "All", Value = "" }, new TypeMarketViewModel { Name = "Outsourse", Value = "true" }, new TypeMarketViewModel { Name = "Our products", Value = "false" } };
-        public HomeController(ILogger<HomeController> logger, IApplicationService applicationService, IMapper mapper, ICategoryService categoryService)
+        public HomeController(ILogger<HomeController> logger,
+            IApplicationService applicationService,
+            IMapper mapper,
+            ICategoryService categoryService,
+            IApplicationDetaisService applicationDetaisService)
         {
             _logger = logger;
             _mapper = mapper;
             _applicationService = applicationService;
             _categoryService = categoryService;
+            _applicationDetaisService = applicationDetaisService;
         }
 
         public IActionResult MainPage()
@@ -42,6 +48,13 @@ namespace Jironimo.Web.Controllers
             return View();
         }
 
+        [HttpGet("applicationDetails/{id:Guid}")]
+        public IActionResult ApplicationDetails(Guid id)
+        {
+            var applicationsDetails = _mapper.Map<List<ApplicationDetailsViewModel>>(_applicationDetaisService.GetAplicationsDetailsById(id));
+            return View(applicationsDetails);
+        }
+        
         public IActionResult Work()
         {
             CategoryApplicationViewModel categoryApplication = new CategoryApplicationViewModel();
@@ -87,7 +100,6 @@ namespace Jironimo.Web.Controllers
                     return View(categoryApplication);
                 }
             }
-
             categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
             categoryApplication.Categories[0].IsActive = true;
             categoryApplication.TypeMarkets[0].IsActive = true;

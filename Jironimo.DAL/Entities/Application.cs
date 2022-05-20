@@ -10,5 +10,11 @@
         public DateTime CreatedAt { get; set; }
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
+        public ICollection<Developer> Developers { get; set; }
+        public Application()
+        {
+            Developers = new List<Developer>();
+        }
+        public ICollection<ApplicationDetails> ApplicationDetails { get; set; }
     }
 }

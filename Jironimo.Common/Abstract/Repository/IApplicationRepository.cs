@@ -5,7 +5,8 @@ namespace Jironimo.Common.Abstract.Repository
     public interface IApplicationRepository
     {
         List<Application> GetAll();
-        void Add(Application application);
+        void Create(Application application);
         List<Application> GetByCategoryId(Guid categoryId);
+        void Save();
     }
 }

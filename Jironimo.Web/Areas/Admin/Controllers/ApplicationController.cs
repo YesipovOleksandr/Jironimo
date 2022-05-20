@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Abstract.Services;
+using Jironimo.Common.Models.Aplications;
 using Jironimo.Web.Areas.Admin.Models;
 using Jironimo.Web.ViewModels;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jironimo.Web.Areas.Admin.Controllers
@@ -10,10 +10,12 @@ namespace Jironimo.Web.Areas.Admin.Controllers
     public class ApplicationController : Controller
     {
         private readonly ICategoryService _categoryService;
+        private readonly IApplicationService _applicationService;
         private readonly IMapper _mapper;
 
-        public ApplicationController(ICategoryService categoryService, IMapper mapper)
+        public ApplicationController(ICategoryService categoryService, IApplicationService applicationService, IMapper mapper)
         {
+            _applicationService = applicationService;
             _categoryService = categoryService;
             _mapper = mapper;
         }
@@ -25,51 +27,19 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             return View("~/Areas/Admin/Views/Application/Application.cshtml", applicationCRUDViewModel);
         }
 
-        // GET: ApplicationController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ApplicationController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ApplicationController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ApplicationCRUDViewModel model)
         {
             try
             {
+                var application = _mapper.Map<Application>(model.ApplicationCreate);
+                _applicationService.Create(application);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
-            }
-        }
-
-        // GET: ApplicationController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ApplicationController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
                 return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
             }
         }
 
