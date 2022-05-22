@@ -37,6 +37,14 @@ namespace Jironimo.DAL.Repository
             var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
             return applicationsList;
         }
+
+        public void DeleteById(Guid id)
+        {
+            var application = _context.Applications.Find(id);
+            if (application != null)
+                _context.Applications.Remove(application);
+        }
+
         public void Save()
         {
             _context.SaveChanges();
@@ -61,5 +69,6 @@ namespace Jironimo.DAL.Repository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
+
     }
 }

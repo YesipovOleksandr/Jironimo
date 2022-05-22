@@ -8,5 +8,6 @@ namespace Jironimo.Common.Abstract.Repository
         void Create(Application application);
         List<Application> GetByCategoryId(Guid categoryId);
         void Save();
+        void DeleteById(Guid id);
     }
 }

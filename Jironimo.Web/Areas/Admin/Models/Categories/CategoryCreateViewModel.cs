@@ -1,4 +1,4 @@
-﻿namespace Jironimo.Web.Areas.Admin.Models
+﻿namespace Jironimo.Web.Areas.Admin.Models.Categories
 {
     public class CategoryCreateViewModel
     {

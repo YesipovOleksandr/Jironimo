@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Jironimo.Web.Areas.Admin.Models
+namespace Jironimo.Web.Areas.Admin.Models.Account
 {
         public class LoginViewModel
         {

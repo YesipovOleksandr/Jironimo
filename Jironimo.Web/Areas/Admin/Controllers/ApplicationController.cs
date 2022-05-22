@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.Aplications;
-using Jironimo.Web.Areas.Admin.Models;
+using Jironimo.Web.Areas.Admin.Models.Application;
 using Jironimo.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,28 +12,37 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IApplicationService _applicationService;
         private readonly IMapper _mapper;
+        private readonly IImageUploadService _imageUploadService;
 
-        public ApplicationController(ICategoryService categoryService, IApplicationService applicationService, IMapper mapper)
+        public ApplicationController(ICategoryService categoryService,
+                                     IApplicationService applicationService,
+                                     IMapper mapper,
+                                     IImageUploadService imageUploadService)
         {
             _applicationService = applicationService;
             _categoryService = categoryService;
             _mapper = mapper;
+            _imageUploadService = imageUploadService;
         }
 
         public ActionResult Index()
         {
             ApplicationCRUDViewModel applicationCRUDViewModel = new ApplicationCRUDViewModel();
-            applicationCRUDViewModel.Categories =_mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
+            applicationCRUDViewModel.Categories =_mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());      
+            applicationCRUDViewModel.ApplicationViews = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+
             return View("~/Areas/Admin/Views/Application/Application.cshtml", applicationCRUDViewModel);
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(ApplicationCRUDViewModel model)
+        public async Task<ActionResult> Create(ApplicationCRUDViewModel model)
         {
+            var newApplication = _mapper.Map<Application>(model.ApplicationCreate);
+            newApplication.ImagePath = await _imageUploadService.UploadImage(model.ApplicationCreate.ImagePath, "/images/Applications/");
+      
             try
             {
-                var application = _mapper.Map<Application>(model.ApplicationCreate);
+                var application = _mapper.Map<Application>(newApplication);
                 _applicationService.Create(application);
                 return RedirectToAction(nameof(Index));
             }
@@ -43,25 +52,10 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             }
         }
 
-        // GET: ApplicationController/Delete/5
-        public ActionResult Delete(int id)
+       public ActionResult Delete(Guid id)
         {
-            return View();
-        }
-
-        // POST: ApplicationController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            _applicationService.DeleteById(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

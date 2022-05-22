@@ -5,12 +5,12 @@ using Jironimo.DAL.Context;
 
 namespace Jironimo.DAL.Repository
 {
-    public class ApplicationDetaisRepository : IApplicationDetaisRepository
+    public class ApplicationDetailsRepository : IApplicationDetailsRepository
     {
         protected readonly ApplicationDbContext _context;
         protected readonly IMapper _mapper;
 
-        public ApplicationDetaisRepository(ApplicationDbContext context, IMapper mapper)
+        public ApplicationDetailsRepository(ApplicationDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -27,6 +27,11 @@ namespace Jironimo.DAL.Repository
             var applicationsDetailsEntity = _context.ApplicationDetails.Where(x => x.ApplicationId == applicationId);
             var applicationsDetails = _mapper.Map<List<ApplicationDetails>>(applicationsDetailsEntity);
             return applicationsDetails;
+        }
+
+        public void Delete(Guid id)
+        {
+            _context.Remove(id);
         }
 
         public void Save()

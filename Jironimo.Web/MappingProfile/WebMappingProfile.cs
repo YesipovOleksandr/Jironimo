@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Models.Aplications;
+using Jironimo.Common.Models.Developer;
 using Jironimo.Common.Models.User;
-using Jironimo.Web.Areas.Admin.Models;
+using Jironimo.Web.Areas.Admin.Models.Account;
+using Jironimo.Web.Areas.Admin.Models.Application;
+using Jironimo.Web.Areas.Admin.Models.Categories;
+using Jironimo.Web.Areas.Admin.Models.Developers;
 using Jironimo.Web.ViewModels;
 
 namespace Jironimo.Web.MappingProfile
@@ -20,6 +24,8 @@ namespace Jironimo.Web.MappingProfile
             //admin            
             CreateMap<ApplicationCreateViewModel, Application>();
             CreateMap<CategoryCreateViewModel, Category>().ReverseMap();
+            CreateMap<DeveloperCreateViewModel, Developer>().ReverseMap();
+            
         }
     }
 }

@@ -1,0 +1,71 @@
+﻿@model DeveloperCRUDViewModel
+
+@{
+    ViewData["Title"] = "Developer";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Developer" asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DeveloperCreate.Name" class="control-label"></label>
+                <input asp-for="DeveloperCreate.Name" class="form-control" />
+                <span asp-validation-for="DeveloperCreate.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeveloperCreate.ImagePath" class="control-label"></label>
+                <input asp-for="DeveloperCreate.ImagePath" class="form-control" />
+                <span asp-validation-for="DeveloperCreate.ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeveloperCreate.Position" class="control-label"></label>
+                <input asp-for="DeveloperCreate.Position" class="form-control" />
+                <span asp-validation-for="DeveloperCreate.Position" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DeveloperCreate.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeveloperCreate.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeveloperCreate.Position)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Developers)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImagePath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+@*                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                   <a href="/admin/developer/Delete?id=@item.Id" id="deleteBtn" class="btn bg-danger mr-1" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash-alt text-white"></i>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

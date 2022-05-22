@@ -41,6 +41,7 @@ builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 
 builder.Services.AddScoped<IHasher, Hasher>();
+builder.Services.AddScoped<IImageUploadService, ImageUploadService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -48,8 +49,11 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
-builder.Services.AddScoped<IApplicationDetaisRepository, ApplicationDetaisRepository>();
-builder.Services.AddScoped<IApplicationDetaisService, ApplicationDetaisService>();
+builder.Services.AddScoped<IApplicationDetailsRepository, ApplicationDetailsRepository>();
+builder.Services.AddScoped<IApplicationDetailsService, ApplicationDetailsService>();
+
+builder.Services.AddScoped<IDeveloperRepository, DeveloperRepository>();
+builder.Services.AddScoped<IDeveloperService, DeveloperService>();
 
 var app = builder.Build();
 

@@ -38,6 +38,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow-y: hidden;
+    max-width:90%;
 }
 
 .application_view {
@@ -63,6 +64,7 @@
 .application_image img {
     width: 100%;
     height: 600px;
+    object-fit: cover;
 }
 
 .application_image {
@@ -71,6 +73,7 @@
 
 .right {
     float: right;
+   
 }
 
 .left {

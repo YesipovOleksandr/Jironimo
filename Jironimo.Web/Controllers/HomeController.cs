@@ -12,14 +12,14 @@ namespace Jironimo.Web.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService _categoryService;
         private readonly IApplicationService _applicationService;
-        private readonly IApplicationDetaisService _applicationDetaisService;
+        private readonly IApplicationDetailsService _applicationDetaisService;
         private readonly IMapper _mapper;
         private readonly List<TypeMarketViewModel> _typeMarketListViewModel = new List<TypeMarketViewModel>() { new TypeMarketViewModel { Name = "All", Value = "" }, new TypeMarketViewModel { Name = "Outsourse", Value = "true" }, new TypeMarketViewModel { Name = "Our products", Value = "false" } };
         public HomeController(ILogger<HomeController> logger,
             IApplicationService applicationService,
             IMapper mapper,
             ICategoryService categoryService,
-            IApplicationDetaisService applicationDetaisService)
+            IApplicationDetailsService applicationDetaisService)
         {
             _logger = logger;
             _mapper = mapper;

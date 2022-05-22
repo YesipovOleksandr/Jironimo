@@ -5,10 +5,9 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-controller="Application" asp-action="Create">
+        <form asp-controller="Application" asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="ApplicationCreate.Title" class="control-label"></label>
@@ -22,7 +21,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ApplicationCreate.ImagePath" class="control-label"></label>
-                <input asp-for="ApplicationCreate.ImagePath" class="form-control" />
+                <input asp-for="ApplicationCreate.ImagePath" type="file" class="form-control" />
                 <span asp-validation-for="ApplicationCreate.ImagePath" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
@@ -47,3 +46,74 @@
         </form>
     </div>
 </div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.PositionRight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.OutSource)
+            </th>
+            @*           <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+                </th>
+                <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ApplicationViews)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImagePath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PositionRight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outsource)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    <a href="/admin/Application/Delete?id=@item.Id" id="deleteBtn" class="btn bg-danger mr-1" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash-alt text-white"></i>Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

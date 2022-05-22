@@ -22,9 +22,15 @@ namespace Jironimo.BLL.Services
             }
         }
 
+        public void DeleteById(Guid id)
+        {
+            _applicationRepository.DeleteById(id);
+            _applicationRepository.Save();
+        }
+
         public List<Application> GetAplications()
         {
-           return _applicationRepository.GetAll();
+            return _applicationRepository.GetAll();
         }
 
         public List<Application> GetAplicationsByCategoryId(Guid categoryId)

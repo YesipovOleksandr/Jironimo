@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.Aplications;
-using Jironimo.Web.Areas.Admin.Models;
+using Jironimo.Web.Areas.Admin.Models.Categories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jironimo.Web.Areas.Admin.Controllers
@@ -29,7 +29,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         {
             try
             {
-                var category = _mapper.Map<Category>(model.Category);
+                var category = _mapper.Map<Category>(model.CategoryCreate);
                 _categoryService.Create(category);
                 return RedirectToAction(nameof(Index));
             }

@@ -157,7 +157,7 @@
       "url": "contact"
     },
     {
-      "name": "delete",
+      "name": "categoryDelete",
       "controller": "Category",
       "action": "Delete",
       "languages": [
@@ -191,6 +191,54 @@
         "it"
       ],
       "url": "admin/application/create"
+    },
+    {
+      "name": "applicationDelete",
+      "controller": "Application",
+      "action": "Delete",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/application/delete/"
+    },
+    {
+      "name": "developer",
+      "controller": "Developer",
+      "action": "Index",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/developer"
+    },
+    {
+      "name": "developerDelete",
+      "controller": "Developer",
+      "action": "Delete",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/developer/delete/"
+    },
+    {
+      "name": "developerCreate",
+      "controller": "Developer",
+      "action": "Create",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/developer/create/"
     }
   ]
 }

@@ -2,6 +2,7 @@
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.User;
 using Jironimo.Web.Areas.Admin.Models;
+using Jironimo.Web.Areas.Admin.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;

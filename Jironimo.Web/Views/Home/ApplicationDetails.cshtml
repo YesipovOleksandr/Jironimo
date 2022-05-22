@@ -13,7 +13,7 @@
     {
         <div class="img_full_information">
             <div class="img_full">
-                <img src="/images/ApplicationDetails/@item.ImagePath" />
+                <img src="~/images/ApplicationDetails/@item.ImagePath" />
             </div>
             <div class="general_block">
                 <div class="titlle_full">
@@ -26,38 +26,67 @@
                     <div class="cost_full">
                         Cost of a similar project ≈ $5000
                     </div>
+                     
+                </div>
+                 <div class="links_full">
+                    <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                    <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
                 </div>
                 <div class="discription_full">
                     @item.Description
-                    <div class="links_full">
-                        <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                        <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                    </div>
                 </div>
+              
+
             </div>
         </div>
     }
     else if (item.PositionImage == PositionImage.full)
     {
+
         <div class="img_full_block">
-            <img src="/images/ApplicationDetails/@item.ImagePath" />
+            <img src="~/images/ApplicationDetails/@item.ImagePath" />
         </div>
     }
     else if (item.PositionImage == PositionImage.twoImage)
     {
+
         <div class="two_pictures">
-            <img src="/images/ApplicationDetails/@item.ImagePath" />
-            <img src="/images/ApplicationDetails/@item.ImagePathTwo" />
+            <img src="~/images/ApplicationDetails/@item.ImagePath" />
+            <img src="~/images/ApplicationDetails/@item.ImagePathTwo" />
         </div>
     }
     else if (item.PositionImage == PositionImage.right)
     {
-        <h1>PositionImage.right</h1>
-        <img src="/images/ApplicationDetails/@item.ImagePath" />
+
+        <div class="application">
+            <div class="application_block right block_right_detalis">
+                <div class="application_title">
+                    @item.Title
+                </div>
+                <div class="application_description">
+                    @item.Description
+                </div>
+            </div>
+            <div class="application_image right">
+                <img class="right" src="~/images/Applications/@item.ImagePath" alt="" />
+            </div>
+        </div>
     }
     else if (item.PositionImage == PositionImage.left)
     {
-        <h1>PositionImage.left</h1>
-        <img src="/images/ApplicationDetails/@item.ImagePath" />
+
+        <div class="application">
+            <div class="application_block left block_right">
+                <div class="application_title">
+                    @item.Title
+                </div>
+                <div class="application_description">
+                    @item.Description
+                </div>
+            </div>
+            <div class="application_image left">
+                <img class="right" src="~/images/ApplicationDetails/@item.ImagePath" alt="" />
+            </div>
+        </div>
     }
 }
