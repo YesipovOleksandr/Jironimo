@@ -1,4 +1,4 @@
-﻿using Jironimo.Common.Models.Developer;
+﻿using Jironimo.Common.Models.Developers;
 
 namespace Jironimo.Common.Abstract.Repository
 {

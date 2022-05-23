@@ -1,9 +1,4 @@
-﻿using Jironimo.Common.Models.Developer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Jironimo.Common.Models.Developers;
 
 namespace Jironimo.Common.Abstract.Services
 {

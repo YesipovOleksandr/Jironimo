@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Models.Aplications;
-using Jironimo.Common.Models.Developer;
+using Jironimo.Common.Models.Developers;
 using Jironimo.Common.Models.User;
 using Jironimo.Web.Areas.Admin.Models.Account;
 using Jironimo.Web.Areas.Admin.Models.Application;

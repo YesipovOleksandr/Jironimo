@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Abstract.Repository;
-using Jironimo.Common.Models.Developer;
+using Jironimo.Common.Models.Developers;
 using Jironimo.DAL.Context;
 
 namespace Jironimo.DAL.Repository

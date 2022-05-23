@@ -1,4 +1,5 @@
-﻿namespace Jironimo.Common.Models.Aplications
+﻿using Jironimo.Common.Models.Developers;
+namespace Jironimo.Common.Models.Aplications
 {
     public class Application
     {
@@ -11,6 +12,7 @@
         public DateTime CreatedAt { get; set; }
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
+        public ICollection<Developer> Developers { get; set; }
     }
 }
 

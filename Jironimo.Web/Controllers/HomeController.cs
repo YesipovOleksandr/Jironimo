@@ -33,11 +33,13 @@ namespace Jironimo.Web.Controllers
             var applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
             return View(applications);
         }
+
         public IActionResult Service()
         {
             var applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
             return View(applications);
         }
+
         public IActionResult About()
         {
             return View();
@@ -51,6 +53,7 @@ namespace Jironimo.Web.Controllers
         [HttpGet("applicationDetails/{id:Guid}")]
         public IActionResult ApplicationDetails(Guid id)
         {
+            var applicationDevelopers = _applicationService.GetByIdWithDevelopers(id);
             var applicationsDetails = _mapper.Map<List<ApplicationDetailsViewModel>>(_applicationDetaisService.GetAplicationsDetailsById(id));
             return View(applicationsDetails);
         }

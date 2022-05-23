@@ -6,7 +6,7 @@
 @section Styles{
 <link rel="stylesheet" href="~/css/ApplicationDetails.css" asp-append-version="true" />
 }
-
+<div>
 @foreach (var item in Model)
 {
     if (item.PositionImage == PositionImage.full && item.Title != null && item.Description != null)
@@ -88,5 +88,43 @@
                 <img class="right" src="~/images/ApplicationDetails/@item.ImagePath" alt="" />
             </div>
         </div>
+
     }
 }
+
+
+
+  <div class="block_img">
+        <div class="dev_block">
+            <img class="dev_avatar_img" src="~/images/About/Teamwork.svg" />
+
+            <div class="dev_position">
+                Art Director
+            </div>
+            <div class="dev_name">
+                Andrii Chutilov
+                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
+            </div>
+        </div>
+    @*    <div class="dev_block">
+            <img class="dev_avatar_img" src="~/images/About/Teamwork (1).svg" />
+            <div class="art_director_text">
+                Front-end Developer
+            </div>
+            <div class="dev_name">
+                Vladyslav Kovalchuk
+                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
+            </div>
+        </div>*@
+@*        <div class="dev_block">
+            <img class="dev_avatar_img" src="~/images/About/Teamwork (2).svg" />
+            <div class="art_director_text">
+                Back-end Developer
+            </div>
+            <div class="dev_name">
+                Alexander Shrekov
+                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
+            </div>
+        </div>  *@ 
+    </div>
+    </div>

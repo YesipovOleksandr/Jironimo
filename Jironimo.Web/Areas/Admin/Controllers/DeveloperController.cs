@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Abstract.Services;
-using Jironimo.Common.Models.Developer;
+using Jironimo.Common.Models.Developers;
 using Jironimo.Web.Areas.Admin.Models.Developers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

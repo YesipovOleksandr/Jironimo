@@ -1,9 +1,4 @@
 ﻿using Jironimo.Common.Models.Aplications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jironimo.Common.Abstract.Services
 {
@@ -12,6 +7,7 @@ namespace Jironimo.Common.Abstract.Services
         void Create(Application application);
         List<Application> GetAplications();
         List<Application> GetAplicationsByCategoryId(Guid categoryId);
+        List<Application> GetByIdWithDevelopers(Guid categoryId);
         void DeleteById(Guid id);
     }
 }

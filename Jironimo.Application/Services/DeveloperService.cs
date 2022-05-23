@@ -1,6 +1,6 @@
 ﻿using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
-using Jironimo.Common.Models.Developer;
+using Jironimo.Common.Models.Developers;
 
 namespace Jironimo.BLL.Services
 {

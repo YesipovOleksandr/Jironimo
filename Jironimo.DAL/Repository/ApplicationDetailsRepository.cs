@@ -2,6 +2,7 @@
 using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Models.Aplications;
 using Jironimo.DAL.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Jironimo.DAL.Repository
 {
