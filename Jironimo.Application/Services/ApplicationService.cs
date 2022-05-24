@@ -38,7 +38,7 @@ namespace Jironimo.BLL.Services
             return _applicationRepository.GetByCategoryId(categoryId);
         }
 
-        public List<Application> GetByIdWithDevelopers(Guid applicationId)
+        public Application GetByIdWithDevelopers(Guid applicationId)
         {
             return _applicationRepository.GetByIdWithDevelopers(applicationId);
         }     

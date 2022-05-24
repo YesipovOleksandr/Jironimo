@@ -2,6 +2,7 @@
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Web.Models;
 using Jironimo.Web.ViewModels;
+using Jironimo.Web.ViewModels.ApplicationDetails;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -45,17 +46,15 @@ namespace Jironimo.Web.Controllers
             return View();
         }
 
-        public IActionResult Contact()
-        {
-            return View();
-        }
 
         [HttpGet("applicationDetails/{id:Guid}")]
         public IActionResult ApplicationDetails(Guid id)
         {
-            var applicationDevelopers = _applicationService.GetByIdWithDevelopers(id);
-            var applicationsDetails = _mapper.Map<List<ApplicationDetailsViewModel>>(_applicationDetaisService.GetAplicationsDetailsById(id));
-            return View(applicationsDetails);
+            ApplicationDetailsViewModel applicationDetailsViewModel = new ApplicationDetailsViewModel();
+            applicationDetailsViewModel.Application = _mapper.Map<ApplicationDeveloperViewModel>(_applicationService.GetByIdWithDevelopers(id));
+            applicationDetailsViewModel.Applications= _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            applicationDetailsViewModel.ApplicationDetails = _mapper.Map<List<ApplicationDetailsModel>>(_applicationDetaisService.GetAplicationsDetailsById(id));
+            return View(applicationDetailsViewModel);
         }
         
         public IActionResult Work()

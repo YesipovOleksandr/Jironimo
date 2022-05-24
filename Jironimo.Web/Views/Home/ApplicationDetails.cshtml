@@ -1,4 +1,4 @@
-﻿@model List<ApplicationDetailsViewModel>
+﻿@model ApplicationDetailsViewModel
 @using Jironimo.Common.Models.Aplications;
 @{
     ViewData["Title"] = "Home Page";
@@ -7,124 +7,135 @@
 <link rel="stylesheet" href="~/css/ApplicationDetails.css" asp-append-version="true" />
 }
 <div>
-@foreach (var item in Model)
-{
-    if (item.PositionImage == PositionImage.full && item.Title != null && item.Description != null)
+
+      <div class="img_full_information">
+                <div class="img_full">
+                    <img src="~/images/Applications/@Model.Application.ImagePath" />
+                </div>
+                <div class="general_block">
+                    <div class="titlle_full">
+                        @Model.Application.Title
+                    </div>
+                    <div class="data_cost">
+                        <div class="data_full">
+                            Mobile - Mar 15th, 2021
+                        </div>
+                        <div class="cost_full">
+                            Cost of a similar project ≈ $5000
+                        </div>
+                    </div>
+                    <div class="links_full">
+                        <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                        <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                    </div>
+                    <div class="discription_full">
+                        @Model.Application.Description
+                    </div>
+                </div>
+            </div>
+
+
+    @foreach (var item in Model.ApplicationDetails)
     {
-        <div class="img_full_information">
-            <div class="img_full">
+        if (item.PositionImage == PositionImage.full && item.Title != null && item.Description != null)
+        {
+            <div class="img_full_information">
+                <div class="img_full">
+                    <img src="~/images/ApplicationDetails/@item.ImagePath" />
+                </div>
+                <div class="general_block">
+                    <div class="titlle_full">
+                        @item.Title
+                    </div>
+                    <div class="data_cost">
+                        <div class="data_full">
+                            Mobile - Mar 15th, 2021
+                        </div>
+                        <div class="cost_full">
+                            Cost of a similar project ≈ $5000
+                        </div>
+
+                    </div>
+                    <div class="links_full">
+                        <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                        <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                    </div>
+                    <div class="discription_full">
+                        @item.Description
+                    </div>
+
+
+                </div>
+            </div>
+        }
+        else if (item.PositionImage == PositionImage.full)
+        {
+
+            <div class="img_full_block">
                 <img src="~/images/ApplicationDetails/@item.ImagePath" />
             </div>
-            <div class="general_block">
-                <div class="titlle_full">
-                    @item.Title
-                </div>
-                <div class="data_cost">
-                    <div class="data_full">
-                        Mobile - Mar 15th, 2021
+        }
+        else if (item.PositionImage == PositionImage.twoImage)
+        {
+
+            <div class="two_pictures">
+                <img src="~/images/ApplicationDetails/@item.ImagePath" />
+                <img src="~/images/ApplicationDetails/@item.ImagePathTwo" />
+            </div>
+        }
+        else if (item.PositionImage == PositionImage.right)
+        {
+
+            <div class="application">
+                <div class="application_block right block_right_detalis">
+                    <div class="application_title">
+                        @item.Title
                     </div>
-                    <div class="cost_full">
-                        Cost of a similar project ≈ $5000
+                    <div class="application_description">
+                        @item.Description
                     </div>
-                     
                 </div>
-                 <div class="links_full">
-                    <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                    <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                <div class="application_image right">
+                    <img class="right" src="~/images/Applications/@item.ImagePath" alt="" />
                 </div>
-                <div class="discription_full">
-                    @item.Description
-                </div>
-              
-
             </div>
-        </div>
+        }
+        else if (item.PositionImage == PositionImage.left)
+        {
+
+            <div class="application">
+                <div class="application_block left block_right">
+                    <div class="application_title">
+                        @item.Title
+                    </div>
+                    <div class="application_description">
+                        @item.Description
+                    </div>
+                </div>
+                <div class="application_image left">
+                    <img class="right" src="~/images/ApplicationDetails/@item.ImagePath" alt="" />
+                </div>
+            </div>
+
+        }
     }
-    else if (item.PositionImage == PositionImage.full)
-    {
 
-        <div class="img_full_block">
-            <img src="~/images/ApplicationDetails/@item.ImagePath" />
-        </div>
-    }
-    else if (item.PositionImage == PositionImage.twoImage)
-    {
+    <div class="block_img">
+        @foreach (var item in Model.Application.Developers)
+        {
+            <div class="dev_block">
+                <img class="dev_avatar_img" src="~/images/Developers/@item.ImagePath" />
 
-        <div class="two_pictures">
-            <img src="~/images/ApplicationDetails/@item.ImagePath" />
-            <img src="~/images/ApplicationDetails/@item.ImagePathTwo" />
-        </div>
-    }
-    else if (item.PositionImage == PositionImage.right)
-    {
-
-        <div class="application">
-            <div class="application_block right block_right_detalis">
-                <div class="application_title">
-                    @item.Title
+                <div class="dev_position">
+                    @item.Position
                 </div>
-                <div class="application_description">
-                    @item.Description
+                <div class="dev_name">
+                    @item.Name
+                    <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
                 </div>
             </div>
-            <div class="application_image right">
-                <img class="right" src="~/images/Applications/@item.ImagePath" alt="" />
-            </div>
-        </div>
-    }
-    else if (item.PositionImage == PositionImage.left)
-    {
-
-        <div class="application">
-            <div class="application_block left block_right">
-                <div class="application_title">
-                    @item.Title
-                </div>
-                <div class="application_description">
-                    @item.Description
-                </div>
-            </div>
-            <div class="application_image left">
-                <img class="right" src="~/images/ApplicationDetails/@item.ImagePath" alt="" />
-            </div>
-        </div>
-
-    }
-}
-
-
-
-  <div class="block_img">
-        <div class="dev_block">
-            <img class="dev_avatar_img" src="~/images/About/Teamwork.svg" />
-
-            <div class="dev_position">
-                Art Director
-            </div>
-            <div class="dev_name">
-                Andrii Chutilov
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>
-    @*    <div class="dev_block">
-            <img class="dev_avatar_img" src="~/images/About/Teamwork (1).svg" />
-            <div class="art_director_text">
-                Front-end Developer
-            </div>
-            <div class="dev_name">
-                Vladyslav Kovalchuk
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>*@
-@*        <div class="dev_block">
-            <img class="dev_avatar_img" src="~/images/About/Teamwork (2).svg" />
-            <div class="art_director_text">
-                Back-end Developer
-            </div>
-            <div class="dev_name">
-                Alexander Shrekov
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>  *@ 
+        }
     </div>
-    </div>
+    <h1>Other works</h1>
+    @await Html.PartialAsync("~/Views/Components/Content/_ApplicationSection.cshtml",@Model.Applications)
+</div>

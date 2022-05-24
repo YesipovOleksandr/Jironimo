@@ -38,11 +38,11 @@ namespace Jironimo.DAL.Repository
             return applicationsList;
         }
 
-        public List<Application> GetByIdWithDevelopers(Guid applicationId)
+        public Application GetByIdWithDevelopers(Guid applicationId)
         {
-            var applicationsEntity = _context.Applications.Include(d => d.Developers).Where(x => x.Id == applicationId).ToList();
-            var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
-            return applicationsList;
+            var applicationsEntity = _context.Applications.Include(d => d.Developers).FirstOrDefault(x => x.Id == applicationId);
+            var application = _mapper.Map<Application>(applicationsEntity);
+            return application;
         }
 
         public void DeleteById(Guid id)

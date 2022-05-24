@@ -145,18 +145,6 @@
       "url": "about"
     },
     {
-      "name": "contact",
-      "controller": "Home",
-      "action": "Contact",
-      "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
-      ],
-      "url": "contact"
-    },
-    {
       "name": "categoryDelete",
       "controller": "Category",
       "action": "Delete",

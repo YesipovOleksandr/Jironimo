@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="~/css/Heder.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Footer.css" asp-append-version="true" />
+     <link rel="stylesheet" href="~/css/ContactForm.css" asp-append-version="true" />
     @RenderSection("Styles", false)
 </head>
 <body>
@@ -15,8 +16,9 @@
     <div class="container">
         @RenderBody()
     </div>
+     @await Html.PartialAsync("~/Views/Shared/Pop-up/_ContactForm.cshtml")
     @await Html.PartialAsync("~/Views/Shared/Footers/_Footer.cshtml")
-
+     
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 

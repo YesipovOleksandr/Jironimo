@@ -18,3 +18,13 @@ function addParamsUrl(paramKey, paramValue) {
     var baseUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + "?" + queryParams;
     window.location = baseUrl;
 }
+
+function ShowModal() {
+    var popup = document.getElementById("popup");
+    popup.style.display = 'block';
+}
+
+function CloseModal() {
+    var popup = document.getElementById("popup");
+    popup.style.display = 'none';
+}

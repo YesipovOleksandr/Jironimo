@@ -7,7 +7,7 @@ namespace Jironimo.Common.Abstract.Repository
         List<Application> GetAll();
         void Create(Application application);
         List<Application> GetByCategoryId(Guid categoryId);
-        List<Application> GetByIdWithDevelopers(Guid applicationId);
+        Application GetByIdWithDevelopers(Guid applicationId);
         void Save();
         void DeleteById(Guid id);
     }

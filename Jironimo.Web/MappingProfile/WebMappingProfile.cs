@@ -7,6 +7,7 @@ using Jironimo.Web.Areas.Admin.Models.Application;
 using Jironimo.Web.Areas.Admin.Models.Categories;
 using Jironimo.Web.Areas.Admin.Models.Developers;
 using Jironimo.Web.ViewModels;
+using Jironimo.Web.ViewModels.ApplicationDetails;
 
 namespace Jironimo.Web.MappingProfile
 {
@@ -19,7 +20,9 @@ namespace Jironimo.Web.MappingProfile
             CreateMap<Category, CategoryViewModel>();
             CreateMap<Application, ApplicationViewModel>()
                 .ForMember(dest => dest.CategoryName, act => act.MapFrom(src => src.Category.Name));
-            CreateMap<ApplicationDetails, ApplicationDetailsViewModel>();
+            CreateMap<ApplicationDetails, ApplicationDetailsModel>();
+            CreateMap<Application, ApplicationDeveloperViewModel>();
+            
 
             //admin            
             CreateMap<ApplicationCreateViewModel, Application>();
