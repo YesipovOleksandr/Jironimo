@@ -1,5 +1,4 @@
 ﻿@model ApplicationCRUDViewModel
-
 @{
     ViewData["Title"] = "Application";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
@@ -24,10 +23,20 @@
                 <input asp-for="ApplicationCreate.ImagePath" type="file" class="form-control" />
                 <span asp-validation-for="ApplicationCreate.ImagePath" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="ApplicationCreate.PositionRight" /> @Html.DisplayNameFor(model => model.ApplicationCreate.PositionRight)
-                </label>
+            <div class="form-group">
+                <label asp-for="ApplicationCreate.Price" class="control-label"></label>
+                <input asp-for="ApplicationCreate.Price" class="form-control" />
+                <span asp-validation-for="ApplicationCreate.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationCreate.GooglePlayLink" class="control-label"></label>
+                <input asp-for="ApplicationCreate.GooglePlayLink" class="form-control" />
+                <span asp-validation-for="ApplicationCreate.GooglePlayLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationCreate.AppStoreLink" class="control-label"></label>
+                <input asp-for="ApplicationCreate.AppStoreLink" class="form-control" />
+                <span asp-validation-for="ApplicationCreate.AppStoreLink" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
@@ -47,9 +56,6 @@
     </div>
 </div>
 
-
-
-
 <table class="table">
     <thead>
         <tr>
@@ -66,18 +72,20 @@
                 @Html.DisplayNameFor(model => model.ApplicationCreate.ImagePath)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationCreate.PositionRight)
+                @Html.DisplayNameFor(model => model.ApplicationCreate.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.GooglePlayLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationCreate.AppStoreLink)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.ApplicationCreate.OutSource)
             </th>
-            @*           <th>
+            @*          <th>
                 @Html.DisplayNameFor(model => model.CreatedAt)
-                </th>
-                <th>
-                @Html.DisplayNameFor(model => model.CategoryName)
                 </th>*@
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -96,9 +104,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.ImagePath)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PositionRight)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationCreate.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationCreate.GooglePlayLink)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ApplicationCreate.AppStoreLink)
+                </th>
                 <td>
                     @Html.DisplayFor(modelItem => item.Outsource)
                 </td>

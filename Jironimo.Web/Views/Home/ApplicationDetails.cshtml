@@ -1,4 +1,5 @@
 ﻿@model ApplicationDetailsViewModel
+@using Jironimo.Web.Helper
 @using Jironimo.Common.Models.Aplications;
 @{
     ViewData["Title"] = "Home Page";
@@ -8,31 +9,31 @@
 }
 <div>
 
-      <div class="img_full_information">
-                <div class="img_full">
-                    <img src="~/images/Applications/@Model.Application.ImagePath" />
+    <div class="img_full_information">
+        <div class="img_full">
+            <img src="~/images/Applications/@Model.Application.ImagePath" />
+        </div>
+        <div class="general_block">
+            <div class="titlle_full">
+                @Model.Application.Title
+            </div>
+            <div class="data_cost">
+                <div class="data_full">
+                    @Model.Application.CategoryName - @Datetime.GetCreatedAt(Model.Application.CreatedAt)
                 </div>
-                <div class="general_block">
-                    <div class="titlle_full">
-                        @Model.Application.Title
-                    </div>
-                    <div class="data_cost">
-                        <div class="data_full">
-                            Mobile - Mar 15th, 2021
-                        </div>
-                        <div class="cost_full">
-                            Cost of a similar project ≈ $5000
-                        </div>
-                    </div>
-                    <div class="links_full">
-                        <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                        <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                    </div>
-                    <div class="discription_full">
-                        @Model.Application.Description
-                    </div>
+                <div class="cost_full">
+                    Cost of a similar project ≈ $@Model.Application.Price
                 </div>
             </div>
+            <div class="links_full">
+                <a href="@Model.Application.AppStoreLink"> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                <a href="@Model.Application.GooglePlayLink"> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+            </div>
+            <div class="discription_full">
+                @Model.Application.Description
+            </div>
+        </div>
+    </div>
 
 
     @foreach (var item in Model.ApplicationDetails)

@@ -1,12 +1,14 @@
 ﻿@using Jironimo.Web.ViewModels
 @using Jironimo.Web.Helper
 @model List<ApplicationViewModel>
-
+@{
+    var isPositionRight = true;
+}
 <div>
     @foreach (var item in Model)
     {
         <div class="application">
-            <div class="application_block @(item.PositionRight?"left":"right block_right")">
+            <div class="application_block @(isPositionRight?"left":"right block_right")">
                 <div class="application_data">
                     <span>
                         @item.CategoryName - @Datetime.GetCreatedAt(item.CreatedAt)
@@ -25,9 +27,10 @@
                     </a>
                 </div>
             </div>
-            <div class="application_image @(item.PositionRight?"right":"left")">
-                <img class="@(item.PositionRight?"right":"left")" src="~/images/Applications/@item.ImagePath" alt="" />
+            <div class="application_image @(isPositionRight?"right":"left")">
+                <img class="@(isPositionRight?"right":"left")" src="~/images/Applications/@item.ImagePath" alt="" />
             </div>
         </div>
+        isPositionRight = !isPositionRight;
     }
 </div>

@@ -40,7 +40,7 @@ namespace Jironimo.DAL.Repository
 
         public Application GetByIdWithDevelopers(Guid applicationId)
         {
-            var applicationsEntity = _context.Applications.Include(d => d.Developers).FirstOrDefault(x => x.Id == applicationId);
+            var applicationsEntity = _context.Applications.Include(d => d.Developers).Include(c=>c.Category).FirstOrDefault(x => x.Id == applicationId);
             var application = _mapper.Map<Application>(applicationsEntity);
             return application;
         }

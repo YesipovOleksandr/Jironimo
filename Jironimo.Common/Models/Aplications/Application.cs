@@ -7,7 +7,9 @@ namespace Jironimo.Common.Models.Aplications
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
-        public bool PositionRight { get; set; }
+        public int Price { get; set; }
+        public string GooglePlayLink { get; set; }
+        public string AppStoreLink { get; set; }
         public bool OutSource { get; set; }
         public DateTime CreatedAt { get; set; }
         public Guid CategoryId { get; set; }

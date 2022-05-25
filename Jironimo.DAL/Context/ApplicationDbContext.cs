@@ -23,7 +23,7 @@ namespace Jironimo.DAL.Context
             builder.Entity<Application>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             builder.Entity<ApplicationDetails>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             builder.Entity<Category>().HasMany(x => x.Applications).WithOne(x => x.Category).HasForeignKey(x => x.CategoryId).OnDelete(DeleteBehavior.NoAction);
-            builder.Entity<Application>().HasMany(x => x.ApplicationDetails).WithOne(x => x.Application).HasForeignKey(x => x.ApplicationId).OnDelete(DeleteBehavior.NoAction);
+            builder.Entity<Application>().HasMany(x => x.ApplicationDetails).WithOne(x => x.Application).HasForeignKey(x => x.ApplicationId).OnDelete(DeleteBehavior.Cascade);
             base.OnModelCreating(builder);
         }
     }

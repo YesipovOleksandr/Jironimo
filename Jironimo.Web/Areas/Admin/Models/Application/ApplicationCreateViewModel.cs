@@ -8,8 +8,9 @@ namespace Jironimo.Web.Areas.Admin.Models.Application
         public string Title { get; set; }
         public string Description { get; set; }
         public IFormFile ImagePath { get; set; }
-        [Display(Name = "Position Right")]
-        public bool PositionRight { get; set; }
+        public int Price { get; set; }
+        public string GooglePlayLink { get; set; }
+        public string AppStoreLink { get; set; }
         [Display(Name = "Out Source")]
         public bool OutSource { get; set; }
         public Guid CategoryId { get; set; }
