@@ -40,33 +40,16 @@
     {
         if (item.PositionImage == PositionImage.full && item.Title != null && item.Description != null)
         {
-            <div class="img_full_information">
-                <div class="img_full">
-                    <img src="~/images/ApplicationDetails/@item.ImagePath" />
-                </div>
-                <div class="general_block">
-                    <div class="titlle_full">
-                        @item.Title
-                    </div>
-                    <div class="data_cost">
-                        <div class="data_full">
-                            Mobile - Mar 15th, 2021
-                        </div>
-                        <div class="cost_full">
-                            Cost of a similar project ≈ $5000
-                        </div>
-
-                    </div>
-                    <div class="links_full">
-                        <a> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                        <a> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                    </div>
-                    <div class="discription_full">
-                        @item.Description
-                    </div>
-
-
-                </div>
+           <div class="information_full"> 
+            <div class="title_information_full"> 
+            Title
+            </div>
+           <div class="text_information_full"> 
+            Madlab is a group of developers and designers on a mission to make Corporate and Startups more capable through state of the art digital solutions.
+            </div>
+            <div class="img_information_full">
+                <img src="~/images/ApplicationDetails/@item.ImagePath" />
+            </div>
             </div>
         }
         else if (item.PositionImage == PositionImage.full)
@@ -137,6 +120,6 @@
             </div>
         }
     </div>
-    <h1>Other works</h1>
+    <h1 class="other_works_title">Other works</h1>
     @await Html.PartialAsync("~/Views/Components/Content/_ApplicationSection.cshtml",@Model.Applications)
 </div>

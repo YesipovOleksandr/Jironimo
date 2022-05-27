@@ -22,8 +22,8 @@ namespace Jironimo.Web.MappingProfile
                 .ForMember(dest => dest.CategoryName, act => act.MapFrom(src => src.Category.Name));
             CreateMap<ApplicationDetails, ApplicationDetailsModel>();
             CreateMap<Application, ApplicationDeveloperViewModel>();
+            CreateMap<Developer, DeveloperViewModel>();
             
-
             //admin            
             CreateMap<ApplicationCreateViewModel, Application>();
             CreateMap<CategoryCreateViewModel, Category>().ReverseMap();

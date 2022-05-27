@@ -83,41 +83,49 @@
     max-width:900px;
 }
 
-.art_director_img{
-    margin-left:60px;
-    margin-top:60px;
-    width:100%;
-    height:336px;
-}
 
-.art_director_text {
-    font-size: 26px;
-    font-weight: 400;
-    line-height: 41px;
-    color: #0F0F0F;
-    margin-left: 60px;
-    margin-top: 10px;
-}
-
-.andrii_chutilov {
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 30px;
-    color:#878787;
-    margin-left: 60px;
-    margin-top: 10px;
-}
 
 .img_up {
     width: 15px;
     height: 15px;
     color: #878787;
 }
-
-.block_img{
-    display:flex;
+.block_img {
+    display: flex;
+    justify-content: center;
     
 }
-.dev_block{
-    width:23%;
+
+.dev_block {
+    width: 16%;
+    margin-left: 60px;
+    margin-top: 60px;
+}
+.dev_block:first-child{
+    margin-left:0px!important;
+}
+
+.dev_avatar_img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.dev_position {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 41px;
+    color: #0F0F0F;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.dev_name {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #878787;
+    text-align: center;
 }

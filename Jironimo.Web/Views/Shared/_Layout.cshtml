@@ -16,9 +16,10 @@
     <div class="container">
         @RenderBody()
     </div>
-     @await Html.PartialAsync("~/Views/Shared/Pop-up/_ContactForm.cshtml")
+     @await Html.PartialAsync("~/Views/Shared/Pop-up/_ContactForm.cshtml",new ContactFromViewModel())
     @await Html.PartialAsync("~/Views/Shared/Footers/_Footer.cshtml")
      
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 

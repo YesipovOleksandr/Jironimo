@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<DeveloperViewModel>
+@{
     ViewData["Title"] = "Home Page";
 }
 @section Styles{
@@ -8,19 +9,19 @@
     <div class="about">
         About
     </div>
-  
+
     <div class="dev_all_block">
         <div class="two_dev_block">
-            <img class="img_1" src="/images/About/2.svg"/>
+            <img class="img_1" src="/images/About/2.svg" />
             <img class="img_2" src="/images/About/3.svg" />
         </div>
         <div class="three_dev_block">
-            <img class="img_3" src="/images/About/1.svg"/>
-            <img class="img_4" src="/images/About/4.svg"/>
-            <img class="img_5" src="/images/About/5.svg"/>
+            <img class="img_3" src="/images/About/1.svg" />
+            <img class="img_4" src="/images/About/4.svg" />
+            <img class="img_5" src="/images/About/5.svg" />
         </div>
     </div>
-      <div class="discription">
+    <div class="discription">
         Madlab creates stunning iOS Apps that make business thrive, even in highly competitive markets.
     </div>
 </div>
@@ -29,47 +30,20 @@
         Здесь должен быть ахуенный текст о том, какие вы классные и как зародилась компания и как всё круто, максимум 4 строки, ширину этого текстового блока я менять запрещаю.
     </div>
     <div class="block_img">
-        <div class="dev_block">
-            <img class="art_director_img" src="~/images/About/Teamwork.svg" />
+        @foreach (var item in Model)
+        {
+             <div class="dev_block">
+                <img class="dev_avatar_img" src="~/images/Developers/@item.ImagePath" />
 
-            <div class="art_director_text">
-                Art Director
+                <div class="dev_position">
+                    @item.Position
+                </div>
+                <div class="dev_name">
+                    @item.Name
+                    <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
+                </div>
             </div>
-            <div class="andrii_chutilov">
-                Andrii Chutilov
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>
-        <div class="dev_block">
-            <img class="art_director_img" src="~/images/About/Teamwork (1).svg" />
-            <div class="art_director_text">
-                Front-end Developer
-            </div>
-            <div class="andrii_chutilov">
-                Vladyslav Kovalchuk
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>
-        <div class="dev_block">
-            <img class="art_director_img" src="~/images/About/Teamwork (2).svg" />
-            <div class="art_director_text">
-                Back-end Developer
-            </div>
-            <div class="andrii_chutilov">
-                Alexander Shrekov
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>
-        <div class="dev_block">
-            <img class="art_director_img" src="~/images/About/Upstream (1).svg" />
-            <div class="art_director_text">
-                Animation
-            </div>
-            <div class="andrii_chutilov">
-                Vladislav Bondarchuk
-                <img class="img_up" src="~/icons/upArrowRightGrey.svg" />
-            </div>
-        </div>
+        }
     </div>
 </div>
 

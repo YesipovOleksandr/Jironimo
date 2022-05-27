@@ -1,8 +1,45 @@
-﻿   <div id="popup" class="popup" >
-       <div class="popup_body">
-           <div class="popup_content">
-               <a onclick="CloseModal()" class="popup_close">x</a>
-               <div>gkggfkdfdjdgfjggjgf</div>
-           </div>
-       </div>
-   </div>
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model Jironimo.Web.ViewModels.ContactFromViewModel
+
+<div id="popup" class="popup">
+    <div class="popup_body">
+        <div class="popup_content">
+            <a onclick="CloseModal()" class="popup_close">
+                <img src="~/icons/close.svg" />
+            </a>
+            <div class="popup_title">Hello, Jironimo team!</div>
+            <div class="line"></div>
+            <form asp-controller="Home" asp-action="SendContactForm" method="post">
+                <label class="popup_text" for="name">
+                    My name is
+                </label>
+                <input placeholder="your name" class="popup_input" asp-for="Name" type="text"  id="name" />
+                <label class="popup_text" for="from">
+                    from
+                </label>
+                <input placeholder="website or company name" class="popup_input" asp-for="From" type="text" name="from" />
+                <p class="popup_text">
+                    I’d like to discuss idea & brief of my project about
+                </p>
+                <div class="radio_button" id="categoryList">
+                </div>
+                <p class="popup_text">
+                    A budget for this project is
+                </p>
+                <div class="radio_button">
+                    <input type="radio" name="Price" id="radio4" value="$5k">
+                    <label for="radio4">$5k</label>
+                    <input type="radio" name="Price" id="radio5" value="5k-15K">
+                    <label for="radio5">$5k-15K</label>
+                    <input type="radio" name="Price" id="radio6" value="$15k-30K">
+                    <label for="radio6">$15k-30K</label>
+                </div>
+                <label class="popup_text" asp-for="Email" for="email">
+                    Contact me back at
+                </label>
+                <input placeholder="your email" class="popup_input" type="email" name="email" id="email" />
+                <button class="popup_button" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>

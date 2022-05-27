@@ -12,6 +12,7 @@ namespace Jironimo.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICategoryService _categoryService;
+        private readonly IDeveloperService _developerService;
         private readonly IApplicationService _applicationService;
         private readonly IApplicationDetailsService _applicationDetaisService;
         private readonly IMapper _mapper;
@@ -20,12 +21,14 @@ namespace Jironimo.Web.Controllers
             IApplicationService applicationService,
             IMapper mapper,
             ICategoryService categoryService,
-            IApplicationDetailsService applicationDetaisService)
+            IApplicationDetailsService applicationDetaisService,
+            IDeveloperService developerService)
         {
             _logger = logger;
             _mapper = mapper;
             _applicationService = applicationService;
             _categoryService = categoryService;
+            _developerService = developerService;
             _applicationDetaisService = applicationDetaisService;
         }
 
@@ -43,9 +46,9 @@ namespace Jironimo.Web.Controllers
 
         public IActionResult About()
         {
-            return View();
+            var developers = _mapper.Map<List<DeveloperViewModel>>(_developerService.GetDevelopers());
+            return View(developers);
         }
-
 
         [HttpGet("applicationDetails/{id:Guid}")]
         public IActionResult ApplicationDetails(Guid id)
@@ -109,6 +112,12 @@ namespace Jironimo.Web.Controllers
             return View(categoryApplication);
         }
 
+        [HttpPost]
+        public IActionResult SendContactForm(ContactFromViewModel contactFromViewModel)
+        {
+
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
