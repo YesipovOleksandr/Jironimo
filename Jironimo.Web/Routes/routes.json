@@ -227,18 +227,6 @@
         "it"
       ],
       "url": "admin/developer/create/"
-    },
-    {
-      "name": "sendContactForm",
-      "controller": "Home",
-      "action": "SendContactForm",
-      "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
-      ],
-      "url": "send/contact-form"
     }
   ]
 }

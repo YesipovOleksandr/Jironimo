@@ -112,13 +112,6 @@ namespace Jironimo.Web.Controllers
             return View(categoryApplication);
         }
 
-        [HttpPost]
-        public IActionResult SendContactForm(ContactFromViewModel contactFromViewModel)
-        {
-
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -31,8 +31,6 @@ function ShowModal() {
     });
 
 
-
-
     var popup = document.getElementById("popup");
     popup.style.display = 'block';
 }
@@ -54,4 +52,5 @@ function CreateButtonCategory(data) {
 function CloseModal() {
     var popup = document.getElementById("popup");
     popup.style.display = 'none';
+    $("#categoryList").html("");
 }

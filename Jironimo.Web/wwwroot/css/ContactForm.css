@@ -10,6 +10,8 @@ z-index:5;
 display:none;
 
 }
+
+
 .popup_body{
     min-height:100%;
     display:flex;
@@ -30,7 +32,8 @@ display:none;
     position: absolute;
     right: 10px;
     top: 10px;
-    color:#000000;
+    color: #000000;
+    cursor: pointer;
 }
 
 .popup_close img{
@@ -64,6 +67,12 @@ display:none;
     border: none;
     border-bottom: 1px solid #808080;
     font-size:18px;
+}
+.popup_input_last {
+    width: 400px;
+    border: none;
+    border-bottom: 1px solid #808080;
+    font-size: 18px;
 }
 
 .popup_name_input:hover, :focus {
@@ -100,4 +109,11 @@ display:none;
     border:none;
     background:none;
     float:right;
+    cursor:pointer;
+}
+
+.popup_button:hover{
+    background:#c5c5c5;
+  
+
 }

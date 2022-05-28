@@ -3,6 +3,7 @@ using Jironimo.Common.Abstract;
 using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Concrete;
+using Jironimo.Common.Models.Email;
 using Jironimo.DAL.Context;
 using Jironimo.DAL.MappingProfile;
 using Jironimo.DAL.Repository;
@@ -33,6 +34,8 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
             options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/login");
         });
 
+builder.Services.Configure<MailSettings>(configuration.GetSection("MailSettings"));
+
 builder.Services.AddAutoMapper(typeof(WebMappingProfile), typeof(DataAccessMapingProfile));
 builder.Services.AddControllersWithViews();
 
@@ -41,6 +44,7 @@ builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
 
 builder.Services.AddScoped<IHasher, Hasher>();
+builder.Services.AddScoped<IMailService, MailService>();
 builder.Services.AddScoped<IImageUploadService, ImageUploadService>();
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
