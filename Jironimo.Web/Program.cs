@@ -8,6 +8,7 @@ using Jironimo.DAL.Context;
 using Jironimo.DAL.MappingProfile;
 using Jironimo.DAL.Repository;
 using Jironimo.Dependencies;
+using Jironimo.Web.Helper;
 using Jironimo.Web.MappingProfile;
 using Jironimo.Web.Middlewares;
 using Jironimo.Web.Providers;
@@ -42,6 +43,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.RegisterDependencyModules();
 builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 builder.Services.AddScoped<IApplicationService, ApplicationService>();
+builder.Services.AddScoped<IRazorViewToStringRenderer, RazorViewToStringRenderer>();
 
 builder.Services.AddScoped<IHasher, Hasher>();
 builder.Services.AddScoped<IMailService, MailService>();

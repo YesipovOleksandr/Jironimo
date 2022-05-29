@@ -1,5 +1,6 @@
 ﻿using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.Email;
+using Jironimo.Web.Helper;
 using Jironimo.Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,11 +10,12 @@ namespace Jironimo.Web.Controllers.API
     [Route("api/[controller]")]
     public class EmailController : Controller
     {
-
-        private readonly IMailService mailService;
-        public EmailController(IMailService mailService)
+        private readonly IRazorViewToStringRenderer _renderer;
+        private readonly IMailService _mailService;
+        public EmailController(IMailService mailService, IRazorViewToStringRenderer renderer)
         {
-            this.mailService = mailService;
+            _mailService = mailService;
+            _renderer = renderer;
         }
 
         [HttpPost]
@@ -22,10 +24,12 @@ namespace Jironimo.Web.Controllers.API
             MailRequest mailRequest = new MailRequest();
             mailRequest.ToEmail = request.Email;
             mailRequest.Subject = "Order";
-            mailRequest.Body = request.CategoryName + request.Price;
+            const string view = "~/Views/TemplatesEmails/ContactForm";
+            var htmlBody = await _renderer.RenderViewToStringAsync($"{view}Html.cshtml", request);
+            mailRequest.Body = htmlBody;
             try
             {
-                await mailService.SendEmailAsync(mailRequest);
+                await _mailService.SendEmailAsync(mailRequest);
 
   
                 return Redirect("/");

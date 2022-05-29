@@ -16,6 +16,7 @@ namespace Jironimo.Common.Models.Aplications
 
     public class ApplicationDetails
     {
+        public Guid Id { get; set; }
         public string? Title { get; set; }
         public string? Description { get; set; }
         public string ImagePath { get; set; }

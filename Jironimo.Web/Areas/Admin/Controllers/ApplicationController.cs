@@ -42,8 +42,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
       
             try
             {
-                var application = _mapper.Map<Application>(newApplication);
-                _applicationService.Create(application);
+                _applicationService.Create(newApplication);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -54,6 +53,8 @@ namespace Jironimo.Web.Areas.Admin.Controllers
 
        public ActionResult Delete(Guid id)
         {
+            var application = _applicationService.GetById(id);
+            _imageUploadService.DeleteImage(application.ImagePath, "/images/Applications/");
             _applicationService.DeleteById(id);
             return RedirectToAction(nameof(Index));
         }

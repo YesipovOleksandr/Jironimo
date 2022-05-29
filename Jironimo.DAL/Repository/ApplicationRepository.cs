@@ -31,6 +31,21 @@ namespace Jironimo.DAL.Repository
             return applicationsList;
         }
 
+        public Application GetById(Guid applicationId)
+        {
+            var applicationsEntity = _context.Applications.FirstOrDefault(x => x.Id == applicationId);
+            var application = _mapper.Map<Application>(applicationsEntity);
+            return application;
+        }
+
+        public List<Application> GetAplicationsWithDetails()
+        {
+            var applicationsEntity = _context.Applications.Include(a => a.ApplicationDetails).ToList();
+            var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
+            return applicationsList;
+        }
+
+
         public List<Application> GetByCategoryId(Guid categoryId)
         {
             var applicationsEntity = _context.Applications.Where(x => x.CategoryId == categoryId);
@@ -76,6 +91,5 @@ namespace Jironimo.DAL.Repository
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
     }
 }

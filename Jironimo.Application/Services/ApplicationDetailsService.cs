@@ -22,6 +22,11 @@ namespace Jironimo.BLL.Services
             }
         }
 
+        public ApplicationDetails GetById(Guid id)
+        {
+           return _applicationDetailsRepository.GetById(id);
+        }
+
         public void DeleteById(Guid id)
         {
             _applicationDetailsRepository.Delete(id);
@@ -30,7 +35,8 @@ namespace Jironimo.BLL.Services
 
         public List<ApplicationDetails> GetAplicationsDetailsById(Guid applicationId)
         {
-            return _applicationDetailsRepository.GetById(applicationId);
+            return _applicationDetailsRepository.GetByIdByApplication(applicationId);
         }
+
     }
 }

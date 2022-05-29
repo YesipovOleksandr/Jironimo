@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Jironimo.Common.Concrete
 {
-    public class ImageUploadService: IImageUploadService
+    public class ImageUploadService : IImageUploadService
     {
         private readonly IWebHostEnvironment _appEnvironment;
 
@@ -22,15 +22,31 @@ namespace Jironimo.Common.Concrete
         {
             if (formFile != null)
             {
-                string path = pathFolder + formFile.FileName;
+                var fileName = Guid.NewGuid()+ formFile.FileName;
+                string path = pathFolder + fileName;
                 using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
                 {
                     await formFile.CopyToAsync(fileStream);
                    
                 }
-                return formFile.FileName;
+                return fileName;
             }
             return null;
+        }
+        public bool DeleteImage(string fileName, string pathFolder)
+        {
+            string path = _appEnvironment.WebRootPath+pathFolder + fileName;
+            if (!System.IO.File.Exists(path)) return false;
+            try
+            {
+                System.IO.File.Delete(path);
+                return true;
+            }
+            catch (Exception e)
+            {
+                //Debug.WriteLine(e.Message);
+            }
+            return false;
         }
     }
 }

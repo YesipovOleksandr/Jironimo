@@ -23,10 +23,17 @@ namespace Jironimo.DAL.Repository
             _context.Add(newApplicationDetails);
         }
 
-        public List<ApplicationDetails> GetById(Guid applicationId)
+        public List<ApplicationDetails> GetByIdByApplication(Guid applicationId)
         {
             var applicationsDetailsEntity = _context.ApplicationDetails.Where(x => x.ApplicationId == applicationId);
             var applicationsDetails = _mapper.Map<List<ApplicationDetails>>(applicationsDetailsEntity);
+            return applicationsDetails;
+        }
+
+        public ApplicationDetails GetById(Guid id)
+        {
+            var applicationsDetailsEntity = _context.ApplicationDetails.Where(x => x.Id == id);
+            var applicationsDetails = _mapper.Map<ApplicationDetails>(applicationsDetailsEntity);
             return applicationsDetails;
         }
 

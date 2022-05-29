@@ -227,6 +227,30 @@
         "it"
       ],
       "url": "admin/developer/create/"
+    },
+    {
+      "name": "applicationDerailsCreate",
+      "controller": "ApplicationDetails",
+      "action": "Index",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/applicationDetails"
+    },
+    {
+      "name": "applicationDetailsCreate",
+      "controller": "ApplicationDetails",
+      "action": "Create",
+      "languages": [
+        "en",
+        "fr",
+        "de",
+        "it"
+      ],
+      "url": "admin/applicationDetails/create/"
     }
   ]
 }

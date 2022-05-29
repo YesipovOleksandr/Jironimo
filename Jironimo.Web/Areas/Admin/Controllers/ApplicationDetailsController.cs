@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Abstract.Services;
+using Jironimo.Common.Models.Aplications;
+using Jironimo.Web.Areas.Admin.Models.ApplicationDetails;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jironimo.Web.Areas.Admin.Controllers
@@ -7,87 +9,53 @@ namespace Jironimo.Web.Areas.Admin.Controllers
     public class ApplicationDetailsController : Controller
     {
         private readonly IApplicationDetailsService _applicationDetailsService;
+        private readonly IApplicationService _applicationService;
+        private readonly IImageUploadService _imageUploadService;
         private readonly IMapper _mapper;
 
-        public ApplicationDetailsController(IApplicationDetailsService applicationDetailsService, IMapper mapper)
+        public ApplicationDetailsController(IApplicationDetailsService applicationDetailsService,
+                                            IMapper mapper,
+                                            IApplicationService applicationService,
+                                            IImageUploadService imageUploadService)
         {
             _applicationDetailsService = applicationDetailsService;
+            _applicationService = applicationService;
             _mapper = mapper;
+            _imageUploadService = imageUploadService;
         }
 
-        // GET: ApplicationDetailsController
         public ActionResult Index()
         {
-            return View();
+            ApplicationDetailsCRUDViewModel applicationDetails = new ApplicationDetailsCRUDViewModel();
+            applicationDetails.Applications = _applicationService.GetById();
+            return View("~/Areas/Admin/Views/ApplicationDetails/ApplicationDetails.cshtml", applicationDetails);
         }
 
-        // GET: ApplicationDetailsController/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
-        // GET: ApplicationDetailsController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: ApplicationDetailsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(ApplicationDetailsCRUDViewModel model)
         {
+            var newApplicationDetails = _mapper.Map<ApplicationDetails>(model.ApplicationDetailsCreate);
+            newApplicationDetails.ImagePath = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePath, "/images/ApplicationDetails/");
+            if (model.ApplicationDetailsCreate.ImagePathTwo != null) { newApplicationDetails.ImagePathTwo = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePathTwo, "/images/ApplicationDetails/"); }
             try
             {
+                _applicationDetailsService.Create(newApplicationDetails);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
-            }
-        }
-
-        // GET: ApplicationDetailsController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: ApplicationDetailsController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
         }
 
-        // GET: ApplicationDetailsController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
-        }
-
-        // POST: ApplicationDetailsController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var applicationDetails = _applicationDetailsService.GetById(id);
+            _imageUploadService.DeleteImage(applicationDetails.ImagePath, "/images/ApplicationDetails/");
+            if (applicationDetails.ImagePathTwo != null) { _imageUploadService.DeleteImage(applicationDetails.ImagePathTwo, "/images/ApplicationDetails/"); }
+            _applicationDetailsService.DeleteById(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

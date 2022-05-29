@@ -73,7 +73,7 @@ namespace Jironimo.Web.Controllers
                 if (_outSource != "" && _categoryId != "")
                 {
                     categoryApplication.TypeMarkets = categoryApplication.TypeMarkets.Select(x => x.Value == _outSource.ToString() ? new TypeMarketViewModel { Name = x.Name, Value = x.Value, IsActive = true } : x).ToList();
-                    categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplicationsByCategoryId(new Guid(_categoryId)).Where(x => x.OutSource == bool.Parse(_outSource)));
+                    categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetByCategoryId(new Guid(_categoryId)).Where(x => x.OutSource == bool.Parse(_outSource)));
                     categoryApplication.Categories = categoryApplication.Categories.Select(p => p.Id == new Guid(_categoryId)
                       ? new CategoryViewModel { Name = p.Name, IsActive = true } : p).ToList();
                     return View(categoryApplication);
@@ -96,7 +96,7 @@ namespace Jironimo.Web.Controllers
             {
                 if (categoryId != "")
                 {
-                    categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplicationsByCategoryId(new Guid(categoryId)));
+                    categoryApplication.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetByCategoryId(new Guid(categoryId)));
                     categoryApplication.Categories = categoryApplication.Categories.Select(p => p.Id == new Guid(categoryId)
                       ? new CategoryViewModel { Name = p.Name, IsActive = true } : p).ToList();
 

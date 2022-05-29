@@ -6,6 +6,7 @@ namespace Jironimo.Common.Abstract.Services
     {
         void Create(ApplicationDetails application);
         void DeleteById(Guid id);
+        ApplicationDetails GetById(Guid id);
         List<ApplicationDetails> GetAplicationsDetailsById(Guid applicationId);
     }
 }

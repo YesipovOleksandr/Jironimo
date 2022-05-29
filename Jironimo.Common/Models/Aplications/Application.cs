@@ -14,6 +14,7 @@ namespace Jironimo.Common.Models.Aplications
         public DateTime CreatedAt { get; set; }
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
+        public ICollection<ApplicationDetails> ApplicationDetails {get;set;}
         public ICollection<Developer> Developers { get; set; }
     }
 }

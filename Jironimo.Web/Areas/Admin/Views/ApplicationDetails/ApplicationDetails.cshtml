@@ -1,0 +1,105 @@
+﻿@using Jironimo.Common.Models.Aplications;
+@model ApplicationDetailsCRUDViewModel
+
+@{
+    ViewData["Title"] = "ApplicationDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="ApplicationDetails" asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Applications" class="control-label"></label>
+                <select class="form-select" asp-items="@(new SelectList(Model.Applications, "Id", "Title"))" asp-for="ApplicationDetailsCreate.ApplicationId"></select><br /><br />
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationDetailsCreate.PositionImage" class="control-label"></label>
+                <select class="form-select" asp-for="ApplicationDetailsCreate.PositionImage" asp-items="Html.GetEnumSelectList<PositionImage>()">
+                    <option selected="selected" value="">Please select</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationDetailsCreate.Title" class="control-label"></label>
+                <input asp-for="ApplicationDetailsCreate.Title" class="form-control" />
+                <span asp-validation-for="ApplicationDetailsCreate.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationDetailsCreate.Description" class="control-label"></label>
+                <input asp-for="ApplicationDetailsCreate.Description" class="form-control" />
+                <span asp-validation-for="ApplicationDetailsCreate.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationDetailsCreate.ImagePath" class="control-label"></label>
+                <input asp-for="ApplicationDetailsCreate.ImagePath" type="file" class="form-control" />
+                <span asp-validation-for="ApplicationDetailsCreate.ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationDetailsCreate.ImagePathTwo" class="control-label"></label>
+                <input asp-for="ApplicationDetailsCreate.ImagePathTwo" type="file" class="form-control" />
+                <span asp-validation-for="ApplicationDetailsCreate.ImagePathTwo" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDetailsCreate.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDetailsCreate.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDetailsCreate.ImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDetailsCreate.ImagePathTwo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApplicationDetailsCreate.PositionImage)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Applications)
+        {
+            @foreach (var applicationDetails in item.ApplicationDetails)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => applicationDetails.Title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => applicationDetails.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => applicationDetails.ImagePath)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => applicationDetails.ImagePathTwo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => applicationDetails.PositionImage)
+                    </td>
+                    <td>
+                        @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                         <a href="/admin/applicationDetails/Delete?id=@applicationDetails.Id" id="deleteBtn" class="btn bg-danger mr-1" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash-alt text-white"></i>Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
