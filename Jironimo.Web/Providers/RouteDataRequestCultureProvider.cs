@@ -11,9 +11,6 @@ namespace Jironimo.Web.Providers
         static RouteDataRequestCultureProvider()
         {
             _cultures.Add("en", new CultureInfo("en-US"));
-            _cultures.Add("fr", new CultureInfo("fr-FR"));
-            _cultures.Add("de", new CultureInfo("de-DE"));
-            _cultures.Add("it", new CultureInfo("it-IT"));
         }
 
         public static IList<CultureInfo> GetCultures()

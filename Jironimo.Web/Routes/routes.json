@@ -5,10 +5,7 @@
       "controller": "Home",
       "action": "MainPage",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": ""
     },
@@ -17,10 +14,7 @@
       "controller": "Account",
       "action": "Create",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "create"
     },
@@ -29,10 +23,7 @@
       "controller": "Account",
       "action": "Login",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "login"
     },
@@ -41,10 +32,7 @@
       "controller": "Account",
       "action": "Login",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "login"
     },
@@ -53,10 +41,7 @@
       "controller": "Account",
       "action": "Admin",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin"
     },
@@ -65,10 +50,7 @@
       "controller": "Home",
       "action": "Work",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "work"
     },
@@ -77,10 +59,7 @@
       "controller": "Home",
       "action": "ApplicationDetails",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "applicationDetails"
     },
@@ -89,10 +68,7 @@
       "controller": "Home",
       "action": "Service",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "service"
     },
@@ -101,10 +77,7 @@
       "controller": "Account",
       "action": "Logout",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "logout"
     },
@@ -113,10 +86,7 @@
       "controller": "Category",
       "action": "Index",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/category"
     },
@@ -125,10 +95,7 @@
       "controller": "Category",
       "action": "Create",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/category/create"
     },
@@ -137,10 +104,7 @@
       "controller": "Home",
       "action": "About",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "about"
     },
@@ -149,10 +113,7 @@
       "controller": "Category",
       "action": "Delete",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/category/delete/"
     },
@@ -161,10 +122,7 @@
       "controller": "Application",
       "action": "Index",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/application"
     },
@@ -173,10 +131,7 @@
       "controller": "Application",
       "action": "Create",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/application/create"
     },
@@ -185,10 +140,7 @@
       "controller": "Application",
       "action": "Delete",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/application/delete/"
     },
@@ -197,10 +149,7 @@
       "controller": "Developer",
       "action": "Index",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/developer"
     },
@@ -209,10 +158,7 @@
       "controller": "Developer",
       "action": "Delete",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/developer/delete/"
     },
@@ -221,10 +167,7 @@
       "controller": "Developer",
       "action": "Create",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/developer/create/"
     },
@@ -233,10 +176,7 @@
       "controller": "ApplicationDetails",
       "action": "Index",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/applicationDetails"
     },
@@ -245,10 +185,7 @@
       "controller": "ApplicationDetails",
       "action": "Create",
       "languages": [
-        "en",
-        "fr",
-        "de",
-        "it"
+        "en"
       ],
       "url": "admin/applicationDetails/create/"
     }
