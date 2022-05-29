@@ -27,7 +27,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         public ActionResult Index()
         {
             ApplicationDetailsCRUDViewModel applicationDetails = new ApplicationDetailsCRUDViewModel();
-            applicationDetails.Applications = _applicationService.GetById();
+            applicationDetails.Applications = _applicationService.GetAplicationsWithDetails();
             return View("~/Areas/Admin/Views/ApplicationDetails/ApplicationDetails.cshtml", applicationDetails);
         }
 
