@@ -53,33 +53,6 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             }
         }
 
-        // GET: DeveloperController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: DeveloperController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: DeveloperController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
         // POST: DeveloperController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
