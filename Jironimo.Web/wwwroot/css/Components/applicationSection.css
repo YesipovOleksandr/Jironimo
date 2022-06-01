@@ -83,3 +83,117 @@
 .block_right {
     padding-left: 10px;
 }
+
+@media screen and (max-width: 980px) {
+    .application_title {
+        width: 100%;
+        font-size:55px;
+        font-weight:500;
+        margin-bottom:20px;
+    }
+
+    .application {
+        height: auto;
+        margin: 30px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .application_image img {
+        height:100%;
+    }
+
+    .application_image {
+        width: 100%;
+        order: 1;
+    }
+
+    .application_block {
+        order: 2;
+        position: relative;
+        width: 100%;
+        top: 10%;
+        margin-top:15px;
+    }
+
+    .right {
+        float: none;
+    }
+
+    .left {
+        float: none;
+    }
+
+    
+    .application_data {
+        font-size: 30px;
+    }
+    .application_description {
+        font-size: 35px;
+        height: 50px;
+       
+    }
+    .application_view {
+        font-size: 30px;
+        width: 100px;
+    }
+
+    @media screen and (max-width: 650px) {
+    }
+
+
+@media screen and (max-width: 480px) {
+    .application_title {
+        width: 100%;
+        font-size: 40px;
+        font-weight: 500;
+        margin-bottom:5px;
+    }
+
+    .application {
+        height: auto;
+        margin: 30px;
+        display: flex;
+        flex-flow: column wrap;
+        
+    }
+    .application_image img {
+        height:300px;
+    }
+
+    .application_image {
+        width:100%;
+        order:1;
+    }
+
+    .application_block {
+        order: 2;
+        position:relative;
+        width:100%;
+        top:10%;
+
+    }
+
+    .right {
+        float:none;
+    }
+
+    .left {
+        float:none;
+    }
+
+    .application_description {
+        height:50px;
+        font-size:30px;
+
+    }
+    .application_data {
+        font-size: 25px;
+    }
+
+    .application_view {
+        font-size: 25px;
+        width: 80px;
+    }
+
+}

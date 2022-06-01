@@ -54,8 +54,9 @@ namespace Jironimo.Web.Controllers
         public IActionResult ApplicationDetails(Guid id)
         {
             ApplicationDetailsViewModel applicationDetailsViewModel = new ApplicationDetailsViewModel();
-            applicationDetailsViewModel.Application = _mapper.Map<ApplicationDeveloperViewModel>(_applicationService.GetByIdWithDevelopers(id));
+            applicationDetailsViewModel.Application = _mapper.Map<ApplicationViewModel>(_applicationService.GetById(id));
             applicationDetailsViewModel.Applications= _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            applicationDetailsViewModel.Developers = _mapper.Map<List<DeveloperViewModel>>(_developerService.GetDevelopersByApplicationId(applicationDetailsViewModel.Application.Id));
             applicationDetailsViewModel.ApplicationDetails = _mapper.Map<List<ApplicationDetailsModel>>(_applicationDetaisService.GetAplicationsDetailsById(id));
             return View(applicationDetailsViewModel);
         }

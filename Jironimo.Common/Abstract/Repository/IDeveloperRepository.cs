@@ -8,5 +8,6 @@ namespace Jironimo.Common.Abstract.Repository
         List<Developer> GetAll();
         void Delete(Guid id);
         void Save();
+        Developer GetById(Guid developerId);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Jironimo.Common.Models.Aplications;
+using Jironimo.Common.Models.ApplicationDeveloper;
 using Jironimo.Common.Models.Developers;
 using Jironimo.Common.Models.User;
 
@@ -15,7 +16,9 @@ namespace Jironimo.DAL.MappingProfile
             CreateMap<Entities.Category, Category>();
             CreateMap<Category,Entities.Category>();
             CreateMap<ApplicationDetails, Entities.ApplicationDetails>().ReverseMap();
-            CreateMap<Developer, Entities.Developer>().ReverseMap();       
+            CreateMap<Developer, Entities.Developer>().ReverseMap();
+            CreateMap<Entities.ApplicationDeveloper, ApplicationDeveloper>().ReverseMap();
+            
         }
     }
 }

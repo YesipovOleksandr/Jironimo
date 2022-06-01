@@ -61,6 +61,8 @@ builder.Services.AddScoped<IApplicationDetailsService, ApplicationDetailsService
 builder.Services.AddScoped<IDeveloperRepository, DeveloperRepository>();
 builder.Services.AddScoped<IDeveloperService, DeveloperService>();
 
+builder.Services.AddScoped<IApplicationDeveloperRepository, ApplicationDeveloperRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -14,5 +14,6 @@ namespace Jironimo.Web.Areas.Admin.Models.Application
         [Display(Name = "Out Source")]
         public bool OutSource { get; set; }
         public Guid CategoryId { get; set; }
+        public List<DeveloperListSelect> Developers { get; set; }
     }
 }

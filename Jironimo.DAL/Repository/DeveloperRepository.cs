@@ -24,7 +24,9 @@ namespace Jironimo.DAL.Repository
 
         public void Delete(Guid id)
         {
-            _context.Remove(id);
+            var developer = _context.Developers.Find(id);
+            if (developer != null)
+                _context.Developers.Remove(developer);
         }
 
         public List<Developer> GetAll()
@@ -34,15 +36,11 @@ namespace Jironimo.DAL.Repository
             return developersList;
         }
 
-        public List<Developer> GetById(Guid id)
+        public Developer GetById(Guid developerId)
         {
-
-            //var developersEntity = from a in _context.Applications
-            //                       join d in _context.Developers on a.Developers equals d.Applications
-            //                       select new { Name = d.Name, Position = d.Position, Age = a.ImagePath };
-
-            //var developersList = _mapper.Map<List<Developer>>(developersEntity);
-            return null;
+            var developerEntity = _context.Developers.FirstOrDefault(x => x.Id == developerId);
+            var developer = _mapper.Map<Developer>(developerEntity);
+            return developer;
         }
 
         public void Save()

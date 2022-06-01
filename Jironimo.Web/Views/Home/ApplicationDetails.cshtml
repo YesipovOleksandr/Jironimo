@@ -26,8 +26,14 @@
                 </div>
             </div>
             <div class="links_full">
-                <a href="@Model.Application.AppStoreLink"> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
-                <a href="@Model.Application.GooglePlayLink"> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                @if (@Model.Application.AppStoreLink != null)
+                {
+                    <a href="@Model.Application.AppStoreLink"> App Store<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                }
+                @if (@Model.Application.GooglePlayLink != null)
+                {
+                    <a href="@Model.Application.GooglePlayLink"> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
+                }
             </div>
             <div class="discription_full">
                 @Model.Application.Description
@@ -40,16 +46,16 @@
     {
         if (item.PositionImage == PositionImage.full && item.Title != null && item.Description != null)
         {
-           <div class="information_full"> 
-            <div class="title_information_full"> 
-            Title
-            </div>
-           <div class="text_information_full"> 
-            Madlab is a group of developers and designers on a mission to make Corporate and Startups more capable through state of the art digital solutions.
-            </div>
-            <div class="img_information_full">
-                <img src="~/images/ApplicationDetails/@item.ImagePath" />
-            </div>
+            <div class="information_full">
+                <div class="title_information_full">
+                    Title
+                </div>
+                <div class="text_information_full">
+                    Madlab is a group of developers and designers on a mission to make Corporate and Startups more capable through state of the art digital solutions.
+                </div>
+                <div class="img_information_full">
+                    <img src="~/images/ApplicationDetails/@item.ImagePath" />
+                </div>
             </div>
         }
         else if (item.PositionImage == PositionImage.full)
@@ -80,7 +86,7 @@
                     </div>
                 </div>
                 <div class="application_image right">
-                    <img class="right" src="~/images/Applications/@item.ImagePath" alt="" />
+                    <img class="right" src="~/images/ApplicationDetails/@item.ImagePath" alt="" />
                 </div>
             </div>
         }
@@ -105,7 +111,7 @@
     }
 
     <div class="block_img">
-        @foreach (var item in Model.Application.Developers)
+        @foreach (var item in Model.Developers)
         {
             <div class="dev_block">
                 <img class="dev_avatar_img" src="~/images/Developers/@item.ImagePath" />

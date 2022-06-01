@@ -18,10 +18,12 @@ namespace Jironimo.DAL.Repository
             _mapper = mapper;
         }
 
-        public void Create(Application application)
+        public Guid Create(Application application)
         {
             var newApplication = _mapper.Map<Entities.Application>(application);
             _context.Add(newApplication);
+            _context.SaveChanges();
+            return newApplication.Id;
         }
 
         public List<Application> GetAll()
@@ -51,13 +53,6 @@ namespace Jironimo.DAL.Repository
             var applicationsEntity = _context.Applications.Where(x => x.CategoryId == categoryId);
             var applicationsList = _mapper.Map<List<Application>>(applicationsEntity);
             return applicationsList;
-        }
-
-        public Application GetByIdWithDevelopers(Guid applicationId)
-        {
-            var applicationsEntity = _context.Applications.Include(d => d.Developers).Include(c=>c.Category).FirstOrDefault(x => x.Id == applicationId);
-            var application = _mapper.Map<Application>(applicationsEntity);
-            return application;
         }
 
         public void DeleteById(Guid id)

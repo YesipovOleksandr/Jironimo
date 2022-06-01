@@ -2,7 +2,6 @@
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.Developers;
 using Jironimo.Web.Areas.Admin.Models.Developers;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Jironimo.Web.Areas.Admin.Controllers
@@ -28,12 +27,6 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             return View("~/Areas/Admin/Views/Developer/Developer.cshtml", developerCRUDViewModel);
         }
 
-        public ActionResult Delete(Guid id)
-        {
-            _developerService.DeleteById(id);
-            return RedirectToAction(nameof(Index));
-        }
-
         [HttpPost]
         public async Task<ActionResult> Create(DeveloperCRUDViewModel model)
         {
@@ -53,19 +46,12 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             }
         }
 
-        // POST: DeveloperController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Guid id)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var applicationDetails = _developerService.GetById(id);
+            _imageUploadService.DeleteImage(applicationDetails.ImagePath, "/images/Developers/");
+            _developerService.DeleteById(id);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

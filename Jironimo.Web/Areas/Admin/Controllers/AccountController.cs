@@ -53,7 +53,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
                 }
                 ModelState.AddModelError("", "Некорректные логин и(или) пароль");
             }
-            return View(model);
+            return View("~/Areas/Admin/Views/Account/Login.cshtml",model);
         }
 
         [HttpPost]

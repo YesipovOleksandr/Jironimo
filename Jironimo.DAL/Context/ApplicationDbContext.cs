@@ -11,6 +11,7 @@ namespace Jironimo.DAL.Context
         }
 
         public DbSet<Application> Applications { get; set; }
+        public DbSet<ApplicationDeveloper> ApplicationDeveloper { get; set; }
         public DbSet<ApplicationDetails> ApplicationDetails { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<User> Users { get; set; }
@@ -24,6 +25,12 @@ namespace Jironimo.DAL.Context
             builder.Entity<ApplicationDetails>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             builder.Entity<Category>().HasMany(x => x.Applications).WithOne(x => x.Category).HasForeignKey(x => x.CategoryId).OnDelete(DeleteBehavior.NoAction);
             builder.Entity<Application>().HasMany(x => x.ApplicationDetails).WithOne(x => x.Application).HasForeignKey(x => x.ApplicationId).OnDelete(DeleteBehavior.Cascade);
+
+
+            builder.Entity<ApplicationDeveloper>().HasKey(ad => new { ad.ApplicationId, ad.DeveloperId });
+            builder.Entity<ApplicationDeveloper>().HasOne(ad => ad.Application).WithMany(b => b.ApplicationDeveloper).HasForeignKey(ad => ad.ApplicationId);
+            builder.Entity<ApplicationDeveloper>().HasOne(ad => ad.Developer).WithMany(c => c.ApplicationDeveloper).HasForeignKey(ad => ad.DeveloperId);
+
             base.OnModelCreating(builder);
         }
     }

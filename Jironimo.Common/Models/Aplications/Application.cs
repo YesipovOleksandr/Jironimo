@@ -1,4 +1,5 @@
 ﻿using Jironimo.Common.Models.Developers;
+using Jironimo.Common.Models.ApplicationDeveloper;
 namespace Jironimo.Common.Models.Aplications
 {
     public class Application
@@ -15,7 +16,6 @@ namespace Jironimo.Common.Models.Aplications
         public Guid CategoryId { get; set; }
         public Category Category { get; set; }
         public ICollection<ApplicationDetails> ApplicationDetails {get;set;}
-        public ICollection<Developer> Developers { get; set; }
     }
 }
 

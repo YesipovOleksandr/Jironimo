@@ -7,10 +7,13 @@ namespace Jironimo.BLL.Services
     public class DeveloperService : IDeveloperService
     {
         private readonly IDeveloperRepository _developerRepository;
+        private readonly IApplicationDeveloperRepository _applicationDeveloperRepository;
 
-        public DeveloperService(IDeveloperRepository developerRepository)
+        public DeveloperService(IDeveloperRepository developerRepository,
+            IApplicationDeveloperRepository applicationDeveloperRepository)
         {
             _developerRepository = developerRepository;
+            _applicationDeveloperRepository = applicationDeveloperRepository;
         }
 
         public void Create(Developer developer)
@@ -26,6 +29,23 @@ namespace Jironimo.BLL.Services
         {
             _developerRepository.Delete(id);
             _developerRepository.Save();
+        }
+
+        public Developer GetById(Guid developerId)
+        {
+            return _developerRepository.GetById(developerId);
+        }
+
+        public List<Developer> GetDevelopersByApplicationId(Guid applicationId)
+        {
+            List<Developer> developers = new List<Developer>();
+            var application = _applicationDeveloperRepository.GetByApplicationsId(applicationId);
+            foreach (var item in application)
+            {
+                var developer= _developerRepository.GetById(item.DeveloperId);
+                if (developer != null) developers.Add(developer);
+            }
+            return developers;
         }
 
         public List<Developer> GetDevelopers()

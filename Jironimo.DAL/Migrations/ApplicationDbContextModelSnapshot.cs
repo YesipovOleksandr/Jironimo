@@ -22,21 +22,6 @@ namespace Jironimo.DAL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ApplicationDeveloper", b =>
-                {
-                    b.Property<Guid>("ApplicationsId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DevelopersId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ApplicationsId", "DevelopersId");
-
-                    b.HasIndex("DevelopersId");
-
-                    b.ToTable("ApplicationDeveloper");
-                });
-
             modelBuilder.Entity("Jironimo.DAL.Entities.Application", b =>
                 {
                     b.Property<Guid>("Id")
@@ -45,7 +30,6 @@ namespace Jironimo.DAL.Migrations
                         .HasDefaultValueSql("NEWID()");
 
                     b.Property<string>("AppStoreLink")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("CategoryId")
@@ -59,7 +43,6 @@ namespace Jironimo.DAL.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GooglePlayLink")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ImagePath")
@@ -114,6 +97,21 @@ namespace Jironimo.DAL.Migrations
                     b.HasIndex("ApplicationId");
 
                     b.ToTable("ApplicationDetails");
+                });
+
+            modelBuilder.Entity("Jironimo.DAL.Entities.ApplicationDeveloper", b =>
+                {
+                    b.Property<Guid>("ApplicationId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("DeveloperId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("ApplicationId", "DeveloperId");
+
+                    b.HasIndex("DeveloperId");
+
+                    b.ToTable("ApplicationDeveloper");
                 });
 
             modelBuilder.Entity("Jironimo.DAL.Entities.Category", b =>
@@ -175,21 +173,6 @@ namespace Jironimo.DAL.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ApplicationDeveloper", b =>
-                {
-                    b.HasOne("Jironimo.DAL.Entities.Application", null)
-                        .WithMany()
-                        .HasForeignKey("ApplicationsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Jironimo.DAL.Entities.Developer", null)
-                        .WithMany()
-                        .HasForeignKey("DevelopersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Jironimo.DAL.Entities.Application", b =>
                 {
                     b.HasOne("Jironimo.DAL.Entities.Category", "Category")
@@ -212,14 +195,40 @@ namespace Jironimo.DAL.Migrations
                     b.Navigation("Application");
                 });
 
+            modelBuilder.Entity("Jironimo.DAL.Entities.ApplicationDeveloper", b =>
+                {
+                    b.HasOne("Jironimo.DAL.Entities.Application", "Application")
+                        .WithMany("ApplicationDeveloper")
+                        .HasForeignKey("ApplicationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Jironimo.DAL.Entities.Developer", "Developer")
+                        .WithMany("ApplicationDeveloper")
+                        .HasForeignKey("DeveloperId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Application");
+
+                    b.Navigation("Developer");
+                });
+
             modelBuilder.Entity("Jironimo.DAL.Entities.Application", b =>
                 {
                     b.Navigation("ApplicationDetails");
+
+                    b.Navigation("ApplicationDeveloper");
                 });
 
             modelBuilder.Entity("Jironimo.DAL.Entities.Category", b =>
                 {
                     b.Navigation("Applications");
+                });
+
+            modelBuilder.Entity("Jironimo.DAL.Entities.Developer", b =>
+                {
+                    b.Navigation("ApplicationDeveloper");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,10 +11,6 @@ namespace Jironimo.DAL.Entities
         public string Name { get; set; }
         public string ImagePath { get; set; }
         public string Position { get; set; }
-        public ICollection<Application> Applications { get; set; }
-        public Developer()
-        {
-            Applications = new List<Application>();
-        }
+        public ICollection<ApplicationDeveloper> ApplicationDeveloper { get; set; }
     }
 }

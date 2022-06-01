@@ -1,24 +1,39 @@
 ﻿using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.Aplications;
+using Jironimo.Common.Models.ApplicationDeveloper;
+using System.Collections.Generic;
 
 namespace Jironimo.BLL.Services
 {
     public class ApplicationService : IApplicationService
     {
         private readonly IApplicationRepository _applicationRepository;
+        private readonly IApplicationDeveloperRepository _applicationDeveloperRepository;
 
-        public ApplicationService(IApplicationRepository applicationRepository)
+        public ApplicationService(IApplicationRepository applicationRepository,
+                 IApplicationDeveloperRepository applicationDeveloperRepository)
         {
             _applicationRepository = applicationRepository;
+            _applicationDeveloperRepository = applicationDeveloperRepository;
         }
-
-        public void Create(Application application)
+        
+        public void Create(Application model,List<Guid> developersIds)
         {
-            if (application != null)
+            if (model != null)
             {
-                _applicationRepository.Create(application);
-                _applicationRepository.Save();
+                var application = _applicationRepository.Create(model);
+
+                foreach (var developerId in developersIds)
+                {
+                    var newDeveloper = new ApplicationDeveloper
+                    {
+                        ApplicationId = application,
+                        DeveloperId = developerId
+                    };
+                    _applicationDeveloperRepository.Create(newDeveloper);
+                    _applicationDeveloperRepository.Save();
+                }
             }
         }
 
@@ -47,10 +62,5 @@ namespace Jironimo.BLL.Services
         {
             return _applicationRepository.GetByCategoryId(categoryId);
         }
-
-        public Application GetByIdWithDevelopers(Guid applicationId)
-        {
-            return _applicationRepository.GetByIdWithDevelopers(applicationId);
-        }     
     }
 }

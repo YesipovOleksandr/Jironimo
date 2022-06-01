@@ -22,15 +22,17 @@ namespace Jironimo.Web.MappingProfile
             CreateMap<Application, ApplicationViewModel>()
                 .ForMember(dest => dest.CategoryName, act => act.MapFrom(src => src.Category.Name));
             CreateMap<ApplicationDetails, ApplicationDetailsModel>();
-            CreateMap<Application, ApplicationDeveloperViewModel>();
             CreateMap<Developer, DeveloperViewModel>();
             CreateMap<ApplicationDetailsCreateViewModel, ApplicationDetails>();
             
             //admin            
-            CreateMap<ApplicationCreateViewModel, Application>();
+            CreateMap<ApplicationCreateViewModel, Application>(); 
             CreateMap<CategoryCreateViewModel, Category>().ReverseMap();
             CreateMap<DeveloperCreateViewModel, Developer>().ReverseMap();
+            CreateMap<Developer, DeveloperListSelect>().ReverseMap();
             
+
+
         }
     }
 }

@@ -39,12 +39,6 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             }
         }
 
-        // GET: CategoryController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
         public ActionResult Delete(Guid id)
         {
             _categoryService.DeleteById(id);
