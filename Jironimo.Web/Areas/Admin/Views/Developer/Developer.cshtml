@@ -1,8 +1,10 @@
-﻿@model DeveloperCRUDViewModel
+﻿@using Jironimo.Common.Models.Developers
+@model DeveloperCreateViewModel
 
 @{
     ViewData["Title"] = "Developer";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var developers =(List<Developer>)ViewBag.Developers;
 }
 
 <div class="row">
@@ -10,19 +12,19 @@
         <form asp-controller="Developer" asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="DeveloperCreate.Name" class="control-label"></label>
-                <input asp-for="DeveloperCreate.Name" class="form-control" />
-                <span asp-validation-for="DeveloperCreate.Name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeveloperCreate.ImagePath" class="control-label"></label>
-                <input asp-for="DeveloperCreate.ImagePath" class="form-control" />
-                <span asp-validation-for="DeveloperCreate.ImagePath" class="text-danger"></span>
+                <label asp-for="ImagePath" class="control-label"></label>
+                <input asp-for="ImagePath" class="form-control" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DeveloperCreate.Position" class="control-label"></label>
-                <input asp-for="DeveloperCreate.Position" class="form-control" />
-                <span asp-validation-for="DeveloperCreate.Position" class="text-danger"></span>
+                <label asp-for="Position" class="control-label"></label>
+                <input asp-for="Position" class="form-control" />
+                <span asp-validation-for="Position" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -36,19 +38,19 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.DeveloperCreate.Name)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeveloperCreate.ImagePath)
+                @Html.DisplayNameFor(model => model.ImagePath)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DeveloperCreate.Position)
+                @Html.DisplayNameFor(model => model.Position)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Developers)
+        @foreach (var item in @developers)
         {
             <tr>
                 <td>

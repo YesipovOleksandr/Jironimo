@@ -21,29 +21,31 @@ namespace Jironimo.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            DeveloperCRUDViewModel developerCRUDViewModel = new DeveloperCRUDViewModel();
-            developerCRUDViewModel.Developers = _developerService.GetDevelopers();
-
-            return View("~/Areas/Admin/Views/Developer/Developer.cshtml", developerCRUDViewModel);
+            ViewBag.Developers= _developerService.GetDevelopers();
+            return View("~/Areas/Admin/Views/Developer/Developer.cshtml");
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(DeveloperCRUDViewModel model)
+        public async Task<ActionResult> Create(DeveloperCreateViewModel model)
         {
-            var newDeveloper = _mapper.Map<Developer>(model.DeveloperCreate);
-
-            newDeveloper.ImagePath = await _imageUploadService.UploadImage(model.DeveloperCreate.ImagePath, "/images/Developers/");
-
-            try
+            if (ModelState.IsValid)
             {
-                var application = _mapper.Map<Developer>(newDeveloper);
-                _developerService.Create(application);
-                return RedirectToAction(nameof(Index));
+                var newDeveloper = _mapper.Map<Developer>(model);
+                newDeveloper.ImagePath = await _imageUploadService.UploadImage(model.ImagePath, "/images/Developers/");
+
+                try
+                {
+                    var application = _mapper.Map<Developer>(newDeveloper);
+                    _developerService.Create(application);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch
-            {
-                return RedirectToAction(nameof(Index));
-            }
+            ViewBag.Developers = _developerService.GetDevelopers();
+            return View("~/Areas/Admin/Views/Developer/Developer.cshtml", model);
         }
 
         public ActionResult Delete(Guid id)

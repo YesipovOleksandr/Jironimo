@@ -27,16 +27,21 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         [HttpPost]
         public ActionResult Create(CategoryCRUDViewModel model)
         {
-            try
+            if (ModelState.IsValid)
             {
-                var category = _mapper.Map<Category>(model.CategoryCreate);
-                _categoryService.Create(category);
-                return RedirectToAction(nameof(Index));
+                try
+                {
+                    var category = _mapper.Map<Category>(model.CategoryCreate);
+                    _categoryService.Create(category);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch
-            {
-                return RedirectToAction(nameof(Index));
-            }
+            model.Categories = _categoryService.GetCategories();
+            return View("~/Areas/Admin/Views/Category/Category.cshtml", model);
         }
 
         public ActionResult Delete(Guid id)

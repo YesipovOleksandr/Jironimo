@@ -35,18 +35,23 @@ namespace Jironimo.Web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ApplicationDetailsCRUDViewModel model)
         {
-            var newApplicationDetails = _mapper.Map<ApplicationDetails>(model.ApplicationDetailsCreate);
-            newApplicationDetails.ImagePath = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePath, "/images/ApplicationDetails/");
-            if (model.ApplicationDetailsCreate.ImagePathTwo != null) { newApplicationDetails.ImagePathTwo = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePathTwo, "/images/ApplicationDetails/"); }
-            try
+            if (ModelState.IsValid)
             {
-                _applicationDetailsService.Create(newApplicationDetails);
-                return RedirectToAction(nameof(Index));
+                var newApplicationDetails = _mapper.Map<ApplicationDetails>(model.ApplicationDetailsCreate);
+                newApplicationDetails.ImagePath = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePath, "/images/ApplicationDetails/");
+                if (model.ApplicationDetailsCreate.ImagePathTwo != null) { newApplicationDetails.ImagePathTwo = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePathTwo, "/images/ApplicationDetails/"); }
+                try
+                {
+                    _applicationDetailsService.Create(newApplicationDetails);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return RedirectToAction(nameof(Index));
+                }
             }
-            catch
-            {
-                return RedirectToAction(nameof(Index));
-            }
+            model.Applications = _applicationService.GetAplicationsWithDetails();
+            return View("~/Areas/Admin/Views/ApplicationDetails/ApplicationDetails.cshtml", model);
         }
 
         public ActionResult Delete(Guid id)
