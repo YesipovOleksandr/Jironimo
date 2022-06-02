@@ -30,27 +30,25 @@ namespace Jironimo.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            ApplicationCRUDViewModel applicationCRUDViewModel = new ApplicationCRUDViewModel();
-            applicationCRUDViewModel.ApplicationCreate = new ApplicationCreateViewModel();
-            applicationCRUDViewModel.ApplicationCreate.Developers = _mapper.Map<List<DeveloperListSelect>>(_developerService.GetDevelopers());
-            applicationCRUDViewModel.Categories = _mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
-            applicationCRUDViewModel.ApplicationViews = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            ViewBag.Developers = _mapper.Map<List<DeveloperListSelect>>(_developerService.GetDevelopers());
+            ViewBag.Categories = _mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
+            ViewBag.ApplicationViews = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
 
-            return View("~/Areas/Admin/Views/Application/Application.cshtml", applicationCRUDViewModel);
+            return View("~/Areas/Admin/Views/Application/Application.cshtml");
         }
 
         [HttpPost]
-        public async Task<ActionResult> Create(ApplicationCRUDViewModel model)
+        public async Task<ActionResult> Create(ApplicationCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
                 var developersIds = new List<Guid>();
                 var newApplication = _mapper.Map<Application>(model);
-                if (model.ApplicationCreate.Developers != null)
+                if (model.Developers != null)
                 {
-                    developersIds = model.ApplicationCreate.Developers.Where(x => x.Selected == true).Select(y => y.Id).ToList();
+                    developersIds = model.Developers.Where(x => x.Selected == true).Select(y => y.Id).ToList();
                 }
-                newApplication.ImagePath = await _imageUploadService.UploadImage(model.ApplicationCreate.ImagePath, "/images/Applications/");
+                newApplication.ImagePath = await _imageUploadService.UploadImage(model.ImagePath, "/images/Applications/");
 
                 try
                 {
@@ -63,9 +61,10 @@ namespace Jironimo.Web.Areas.Admin.Controllers
                 }             
             }
 
-            model.ApplicationCreate.Developers = _mapper.Map<List<DeveloperListSelect>>(_developerService.GetDevelopers());
-            model.Categories = _mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
-            model.ApplicationViews = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            ViewBag.Developers = _mapper.Map<List<DeveloperListSelect>>(_developerService.GetDevelopers());
+            ViewBag.Categories = _mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
+            ViewBag.ApplicationViews = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+
             return View("~/Areas/Admin/Views/Application/Application.cshtml", model);
         }
 

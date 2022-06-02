@@ -1,7 +1,9 @@
-﻿@model CategoryCRUDViewModel
+﻿@using Jironimo.Common.Models.Aplications;
+@model CategoryCreateViewModel
 @{
     ViewData["Title"] = "View";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var categories = (List<Category>)ViewBag.Categories;
 }
 
 <div class="row">
@@ -9,9 +11,9 @@
         <form asp-controller="Category" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="CategoryCreate.Name" class="control-label"></label>
-                <input asp-for="CategoryCreate.Name" class="form-control" />
-                <span asp-validation-for="CategoryCreate.Name" class="text-danger"></span>
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -25,22 +27,21 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CategoryCreate.Name)
+                @Html.DisplayNameFor(model => model.Name)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Categories)
+        @foreach (var item in categories)
         {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @*                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
                     <a href="/admin/Category/Delete?id=@item.Id" id="deleteBtn" class="btn bg-danger mr-1" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash-alt text-white"></i>Delete</a>
+                </td>
             </tr>
         }
     </tbody>

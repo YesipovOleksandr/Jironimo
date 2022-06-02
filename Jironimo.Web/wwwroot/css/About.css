@@ -196,7 +196,7 @@
 
 @media screen and (max-width: 480px) {
     .black_block {
-        height: 130vh;
+        height: auto;
         display: flex;
         flex-flow: column wrap;
     }
@@ -248,7 +248,7 @@
     }
 
     .two_dev_block {
-        width: 100vw;
+        margin-right: 5% !important;
     }
 
         .two_dev_block img {
@@ -271,6 +271,7 @@
     .three_dev_block {
         float: right;
         margin-right: 5%;
+        margin-bottom:20px;
     }
 
         .three_dev_block img {

@@ -26,20 +26,19 @@ namespace Jironimo.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            ApplicationDetailsCRUDViewModel applicationDetails = new ApplicationDetailsCRUDViewModel();
-            applicationDetails.Applications = _applicationService.GetAplicationsWithDetails();
-            return View("~/Areas/Admin/Views/ApplicationDetails/ApplicationDetails.cshtml", applicationDetails);
+            ViewBag.Applications = _applicationService.GetAplicationsWithDetails();
+            return View("~/Areas/Admin/Views/ApplicationDetails/ApplicationDetails.cshtml");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ApplicationDetailsCRUDViewModel model)
+        public async Task<ActionResult> Create(ApplicationDetailsCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var newApplicationDetails = _mapper.Map<ApplicationDetails>(model.ApplicationDetailsCreate);
-                newApplicationDetails.ImagePath = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePath, "/images/ApplicationDetails/");
-                if (model.ApplicationDetailsCreate.ImagePathTwo != null) { newApplicationDetails.ImagePathTwo = await _imageUploadService.UploadImage(model.ApplicationDetailsCreate.ImagePathTwo, "/images/ApplicationDetails/"); }
+                var newApplicationDetails = _mapper.Map<ApplicationDetails>(model);
+                newApplicationDetails.ImagePath = await _imageUploadService.UploadImage(model.ImagePath, "/images/ApplicationDetails/");
+                if (model.ImagePathTwo != null) { newApplicationDetails.ImagePathTwo = await _imageUploadService.UploadImage(model.ImagePathTwo, "/images/ApplicationDetails/"); }
                 try
                 {
                     _applicationDetailsService.Create(newApplicationDetails);
@@ -50,7 +49,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            model.Applications = _applicationService.GetAplicationsWithDetails();
+            ViewBag.Applications = _applicationService.GetAplicationsWithDetails();
             return View("~/Areas/Admin/Views/ApplicationDetails/ApplicationDetails.cshtml", model);
         }
 

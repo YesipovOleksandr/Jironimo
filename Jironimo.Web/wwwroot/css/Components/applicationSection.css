@@ -130,7 +130,7 @@
     }
     .application_description {
         font-size: 35px;
-        height: 50px;
+        height:auto;
        
     }
     .application_view {
@@ -183,7 +183,7 @@
     }
 
     .application_description {
-        height:50px;
+        height:auto;
         font-size:30px;
 
     }
@@ -194,6 +194,7 @@
     .application_view {
         font-size: 25px;
         width: 80px;
+        margin-top:10px;
     }
 
 }

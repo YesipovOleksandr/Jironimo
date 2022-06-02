@@ -19,19 +19,18 @@ namespace Jironimo.Web.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            CategoryCRUDViewModel categoryCRUDViewModel = new CategoryCRUDViewModel();
-            categoryCRUDViewModel.Categories = _categoryService.GetCategories();
-            return View("~/Areas/Admin/Views/Category/Category.cshtml", categoryCRUDViewModel);
+            ViewBag.Categories = _categoryService.GetCategories();
+            return View("~/Areas/Admin/Views/Category/Category.cshtml");
         }
 
         [HttpPost]
-        public ActionResult Create(CategoryCRUDViewModel model)
+        public ActionResult Create(CategoryCreateViewModel model)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    var category = _mapper.Map<Category>(model.CategoryCreate);
+                    var category = _mapper.Map<Category>(model);
                     _categoryService.Create(category);
                     return RedirectToAction(nameof(Index));
                 }
@@ -40,7 +39,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
                     return RedirectToAction(nameof(Index));
                 }
             }
-            model.Categories = _categoryService.GetCategories();
+            ViewBag.Categories = _categoryService.GetCategories();
             return View("~/Areas/Admin/Views/Category/Category.cshtml", model);
         }
 

@@ -46,7 +46,7 @@ namespace Jironimo.Web.Controllers
 
         public IActionResult About()
         {
-            var developers = _mapper.Map<List<DeveloperViewModel>>(_developerService.GetDevelopers());
+            var developers = _mapper.Map<List<DeveloperViewModel>>(_developerService.GetDevelopers().Take(4));
             return View(developers);
         }
 
