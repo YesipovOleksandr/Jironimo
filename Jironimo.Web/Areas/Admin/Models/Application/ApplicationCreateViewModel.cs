@@ -18,6 +18,6 @@ namespace Jironimo.Web.Areas.Admin.Models.Application
         public bool OutSource { get; set; }
         [Required]
         public Guid CategoryId { get; set; }
-        public List<DeveloperListSelect> Developers { get; set; }
+        public List<DeveloperListSelect>? Developers { get; set; }
     }
 }

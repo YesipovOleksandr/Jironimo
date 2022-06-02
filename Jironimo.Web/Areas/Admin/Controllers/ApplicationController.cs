@@ -46,7 +46,7 @@ namespace Jironimo.Web.Areas.Admin.Controllers
                 var newApplication = _mapper.Map<Application>(model);
                 if (model.Developers != null)
                 {
-                    developersIds = model.Developers.Where(x => x.Selected == true).Select(y => y.Id).ToList();
+                    developersIds = model.Developers.Where(x => x.Selected == true).Select(y => (Guid)y.Id).ToList();
                 }
                 newApplication.ImagePath = await _imageUploadService.UploadImage(model.ImagePath, "/images/Applications/");
 
