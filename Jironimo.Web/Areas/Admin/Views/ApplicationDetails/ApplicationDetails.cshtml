@@ -16,7 +16,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="PositionImage" class="control-label"></label>
-                <select class="form-select" asp-for="PositionImage" asp-items="Html.GetEnumSelectList<PositionImage>()">
+                <select id="select_position_Image" class="form-select" asp-for="PositionImage" asp-items="Html.GetEnumSelectList<PositionImage>()">
                     <option selected="selected" value="">Please select</option>
                 </select>
             </div>
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="ImagePathTwo" class="control-label"></label>
-                <input asp-for="ImagePathTwo" type="file" class="form-control" />
+                <input id="imagePathTwo" asp-for="ImagePathTwo" type="file" class="form-control" />
                 <span asp-validation-for="ImagePathTwo" class="text-danger"></span>
             </div>
 

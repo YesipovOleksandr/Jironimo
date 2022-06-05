@@ -31,14 +31,14 @@
 .application_description {
     font-size: 22px;
     font-weight: 400;
-    line-height: 30.8px;
     color: #0F0F0F;
     height: 99px;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow-y: hidden;
     max-width:90%;
+    padding-bottom:5px;
 }
 
 .application_view {

@@ -1,4 +1,7 @@
-﻿.top_page {
+﻿.container{
+    margin-top:100px;
+}
+.top_page {
     margin-left: 60px;
     margin-top: 60px;
 }
@@ -72,5 +75,9 @@
         display:inline-block;
         margin:5px;
         font-size:25px;
+    }
+
+    .container {
+        margin-top: 50px;
     }
 }

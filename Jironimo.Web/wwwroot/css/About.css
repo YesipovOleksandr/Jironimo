@@ -75,11 +75,6 @@
     height: 220px;
 }
 
-
-.write_block {
-    height: 100%;
-}
-
 .text {
     font-weight: 400;
     font-size: 26px;
@@ -89,8 +84,6 @@
     margin-top: 60px;
     max-width: 900px;
 }
-
-
 
 .img_up {
     width: 15px;
@@ -205,11 +198,12 @@
         order: 1;
         margin-left: 80px;
         padding-top: 50px;
+        margin-top: 50px;
     }
 
     .discription {
         order: 2;
-        margin-left: 30px;
+        margin-left: 20px;
     }
 
     .dev_all_block {
@@ -223,7 +217,7 @@
 
     .dev_block {
         margin: auto;
-        width: 68%;
+        width: 100%;
     }
 
         .dev_block:first-child {
@@ -255,8 +249,6 @@
             float: right;
             padding-right: 20px;
         }
-
-
 
     .img_1 {
         width: 145px;

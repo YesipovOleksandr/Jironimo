@@ -26,13 +26,14 @@ function ShowModal() {
         type: 'GET',
         url: "/api/category/",
         success: function (data) {
-          CreateButtonCategory(JSON.stringify(data));
+            CreateButtonCategory(JSON.stringify(data));
         }
     });
 
-
     var popup = document.getElementById("popup");
     popup.style.display = 'block';
+
+    $('.header_burger,.header_menu').toggleClass('active');
 }
 
 function CreateButtonCategory(data) {
@@ -44,7 +45,7 @@ function CreateButtonCategory(data) {
         var obj = json[i];
         console.log(obj);
 
-        var button = "<input type='radio' id=" + obj.id + " type='radio' name='CategoryName' value=" + obj.name + "> <label for="+obj.id+">"+obj.name+"</label>";
+        var button = "<input type='radio' id=" + obj.id + " type='radio' name='CategoryName' value=" + obj.name + "> <label for=" + obj.id + ">" + obj.name + "</label>";
         container.innerHTML += button;
     }
 }
@@ -54,3 +55,34 @@ function CloseModal() {
     popup.style.display = 'none';
     $("#categoryList").html("");
 }
+
+
+$(document).ready(function () {
+    $('.header_burger').click(function (event) {
+        $('.header_burger,.header_menu').toggleClass('active');
+    });
+});
+
+
+
+$(function () {
+    // при нажатии на кнопку scrollup
+    $('.scrollup').click(function () {
+        // переместиться в верхнюю часть страницы
+        $("html, body").animate({
+            scrollTop: 0
+        }, 1000);
+    })
+})
+// при прокрутке окна (window)
+$(window).scroll(function () {
+    // если пользователь прокрутил страницу более чем на 200px
+    if ($(this).scrollTop() > 200) {
+        // то сделать кнопку scrollup видимой
+        $('.scrollup').fadeIn();
+    }
+    // иначе скрыть кнопку scrollup
+    else {
+        $('.scrollup').fadeOut();
+    }
+});

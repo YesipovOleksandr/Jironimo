@@ -22,6 +22,8 @@ namespace Jironimo.BLL.Services
         {
             if (model != null)
             {
+                model.CreatedAt = DateTime.Now;
+
                 var application = _applicationRepository.Create(model);
 
                 foreach (var developerId in developersIds)

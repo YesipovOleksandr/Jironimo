@@ -1,23 +1,27 @@
 ﻿@using resources = Jironimo.Web.Resources.SharedResource;
 @{
-    var isWorkPage = ViewContext.RouteData.Values["routeName"]?.ToString()=="work";
+    var isWorkPage = ViewContext.RouteData.Values["routeName"]?.ToString() == "work";
 }
 
-<header class="@(isWorkPage?"background_white":"")">
-    <a href="/" class="logo">
-        Jironimo
-    </a>
-    <div class="center_menu">
-        <ul class="menu_top">
-            <li><a href="/work">Work</a></li>
-            <li><a href="/service">Service</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact" onclick="ShowModal()"> Contact</a></li>
-        </ul>
-          </div>
-        <div class="right_btn">
-            <a onclick="ShowModal()" class="btn">Let's talk</a>
-         </div>
+<header class="header @(isWorkPage?"background_white":"")">
+    <div class="nav_block">
+        <div class="header_body">
+            <a href="/" class="header_logo logo">Jironimo</a>
+            <div class="header_burger">
+                <span> </span>
+            </div>
+            <nav class="header_menu">
+                <ul class="header_list">
+                    <li><a href="/work" class="header_link"> Work</a></li>
+                    <li><a href= "/service"class="header_link">Service</a></li>
+                    <li><a href="/about" class="header_link"> About</a></li>
+                    <li><a href="" onclick="ShowModal()" class="header_link">Contact </a></li>
+                </ul>
+            </nav>
+            <div class="right_btn">
+                <a onclick="ShowModal()" class="btn">Let's talk</a>
+            </div>
+        </div>
+    </div>
 </header>
-
 
