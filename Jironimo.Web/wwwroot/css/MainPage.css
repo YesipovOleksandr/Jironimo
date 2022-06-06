@@ -30,6 +30,15 @@
     
 }
 
+.animationGrey {
+    top: 30% !important;
+    transition: 3s;
+}
+
+.animationPink {
+    top: 63% !important;
+    transition: 3s;
+}
 
 
 .grey_square {
@@ -37,12 +46,11 @@
     background-size: cover;
     width: 540px;
     height: 540px;
-   
     border-radius: 48px;
     position: absolute;
     right: 23%;
     top: 25%;
-    z-index:1;
+    z-index: 1;
 }
 
 .pink_square {
@@ -141,5 +149,15 @@
         font-size: 20px;
         line-height: 30px;
         font-weight: 100;
+    }
+
+    .animationGrey {
+        top: 45% !important;
+        transition: 3s;
+    }
+
+    .animationPink {
+        top: 58% !important;
+        transition: 3s;
     }
 }

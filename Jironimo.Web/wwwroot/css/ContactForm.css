@@ -6,7 +6,7 @@ height:100%;
 background:rgba(0,0,0,0.8);
 top:0;
 left:0;
-z-index:5;
+z-index:60;
 display:none;
 
 }
@@ -119,15 +119,21 @@ display:none;
 }
 
 @media screen and (max-width: 480px) {
+    .popup_body{
+        padding:0px;
+    }
+
+    .popup_close {
+        right: 20px;
+        top: 20px;
+    }
+
     .popup_content {
         width: 90%;
-        height: 70vh;
+        height: 100vh;
         padding: 30px;
-        padding-top:60px;
+        padding-top: 60px;
         position: relative;
-
-        
-        
     }
 
     .popup_text {

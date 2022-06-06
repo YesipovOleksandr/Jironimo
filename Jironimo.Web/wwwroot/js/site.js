@@ -19,6 +19,8 @@ function addParamsUrl(paramKey, paramValue) {
     window.location = baseUrl;
 }
 
+var isShow = false;
+
 function ShowModal() {
     event.preventDefault();
 
@@ -33,17 +35,16 @@ function ShowModal() {
     var popup = document.getElementById("popup");
     popup.style.display = 'block';
 
-    $('.header_burger,.header_menu').toggleClass('active');
+    $('body').addClass('scrollHide');
+    $('popup').addClass('scrollHide');
 }
 
 function CreateButtonCategory(data) {
-    console.log(JSON.parse(data));
     var json = JSON.parse(data);
     var count = Object.keys(json).length;
-    var container = document.getElementById('categoryList'); // reference to containing elm
+    var container = document.getElementById('categoryList');
     for (var i = 0; i < count; i++) {
         var obj = json[i];
-        console.log(obj);
 
         var button = "<input type='radio' id=" + obj.id + " type='radio' name='CategoryName' value=" + obj.name + "> <label for=" + obj.id + ">" + obj.name + "</label>";
         container.innerHTML += button;
@@ -54,6 +55,9 @@ function CloseModal() {
     var popup = document.getElementById("popup");
     popup.style.display = 'none';
     $("#categoryList").html("");
+
+    $('body').removeClass('scrollHide');
+    $('popup').removeClass('scrollHide');
 }
 
 
@@ -86,3 +90,15 @@ $(window).scroll(function () {
         $('.scrollup').fadeOut();
     }
 });
+
+
+$(window).scroll(function () {
+    if ($(this).scrollTop() > 10) {
+        $('#grey').addClass('animationGrey');
+        $('#pink').addClass('animationPink');
+    }
+    else {
+        $('#grey').removeClass('animationGrey');
+        $('#pink').removeClass('animationPink');
+    }
+}); 

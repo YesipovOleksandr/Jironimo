@@ -194,6 +194,10 @@
         flex-flow: column wrap;
     }
 
+    .text{
+        margin:20px
+    }
+
     .about {
         order: 1;
         margin-left: 80px;
