@@ -117,3 +117,26 @@ display:none;
   
 
 }
+
+@media screen and (max-width: 480px) {
+    .popup_content {
+        width: 90%;
+        height: 70vh;
+        padding: 30px;
+        padding-top:60px;
+        position: relative;
+
+        
+        
+    }
+
+    .popup_text {
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .popup_input {
+        display:flex;
+        width:100%;
+    }
+}

@@ -1,6 +1,6 @@
 ﻿.black_block {
     background: #131313;
-    height:750px;
+    height:800px;
 }
 .title{
    height:192px;
@@ -22,15 +22,29 @@
     margin-left: 60px;
     padding-top:270px;
 }
+
+
+.block_one {
+    width:50%;
+    float:left;
+    height:700px;
+}
+
+.block_two {
+    width: 50%;
+    float: right;
+    height: 100%;
+    position: relative;
+}
+
 .picture_fon {
+    position: absolute;
+    bottom: 0px;
+    right:0px;
     background: url('/images//ServiceBackgraundPhone.png');
     background-size: cover;
+    height: 550px;
     width: 550px;
-    height:538px;
-    position: absolute;
-    left:63%;
-    top: 30%;
-  
 }
 
 .technology{
@@ -237,14 +251,18 @@ margin:60px;
         height: 91px;
     }
 
+    .block_two {
+        width: 39%;
+      
+    }
     .picture_fon {
         order: 3;
         background-size: cover;
         width: 603px;
         height: 680px;
         position: absolute;
-        left: 21%;
-        top: 42%;
+        bottom: 0px;
+        right: 0px;
     }
 
     .sub_title {
@@ -293,16 +311,26 @@ margin:60px;
             height: 91px;
         }
 
-        .picture_fon {
-            order: 3;
-            background-size: cover;
-            width: 330px;
-            height: 380px;
-            position: absolute;
-            left: 17%;
-            top: 55%;
+
+        .block_two {
+            margin-top: 20px;
+            width: 50%;
+            float:none;
+            height: 100%;
+            position: relative;
         }
 
+        .picture_fon {
+            order: 3;
+            width: 320px;
+            height: 350px;
+            position: absolute;
+            bottom: 0px;
+           
+          
+           
+            
+        }
         .sub_title {
             font-size: 50px;
         }
@@ -384,9 +412,9 @@ margin:60px;
         .react_signature {
             font-size: 22px;
             font-weight:500;
-            width: 158px;
+            width: 120px;
             height: 42px;
-            padding-left: 40px;
+        
             padding-top: 8px;
         }
         .kotlin_img {
@@ -410,12 +438,29 @@ margin:60px;
             font-weight: 500;
             font-size: 22px;
             line-height: 41px;
-            width: 158px;
+            width: 60px;
             height: 42px;
-            padding-left: 30px;
+         
             padding-top: 20px;
-            padding-left: 100px;
+          
         }
 
-    }
+        .block_one {
+            width: 50%;
+            float: none;
+            height:0px;
+        }
+        .kotlin_signature {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 41px;
+            width: 50px;
+            height: 42px;
+            padding-left: 0px;
+            padding-top: 20px;
+        }
+        .kotlin {
+          
+            margin-left: 0px;
+        }
 }

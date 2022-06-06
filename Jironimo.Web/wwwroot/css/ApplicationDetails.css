@@ -148,3 +148,194 @@ line-height:43px;
     font-weight:400;
     line-height:96px;
 }
+
+
+@media screen and (max-width: 980px) {
+    .block_right_detalis {
+        padding-left: 30px;
+    }
+
+    .two_pictures img {
+        display: inline;
+        width: 86%;
+        height: 600px;
+        margin-left: 60px;
+        margin-top: 30px;
+        object-fit: cover;
+    }
+
+    .application_description, .text_information_full {
+        font-size: 22px;
+    }
+
+
+    .other_works_title {
+        line-height: 30px;
+    }
+
+    .general_block {
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .links_full {
+        order: 4;
+    }
+
+    .discription_full {
+        order: 3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-right: 50px;
+    }
+
+
+
+
+
+    .block_img {
+        display: block;
+    }
+
+    .dev_block {
+        margin: auto;
+        width: 100%;
+    }
+
+        .dev_block:first-child {
+            margin: auto !important;
+        }
+
+    .dev_avatar_img {
+        width: 400px;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+        margin: 20px auto;
+    }
+
+    .dev_position {
+        font-size: 35px;
+    }
+
+    .dev_name {
+        font-size: 35px;
+        margin-top: 10px;
+    }
+
+    .two_dev_block {
+        margin-right: 5% !important;
+    }
+
+        .two_dev_block img {
+            float: right;
+            padding-right: 20px;
+        }
+
+    .img_1 {
+        width: 145px;
+        height: 145px;
+    }
+
+    .img_2 {
+        width: 145px;
+        height: 145px;
+    }
+
+    .three_dev_block {
+        float: right;
+        margin-right: 5%;
+        margin-bottom: 20px;
+    }
+
+        .three_dev_block img {
+            float: right;
+            padding-right: 20px;
+            padding-top: 20px;
+        }
+
+
+    .img_3 {
+        width: 145px;
+        height: 145px;
+    }
+
+    .img_4 {
+        width: 145px;
+        height: 145px;
+    }
+
+    .img_5 {
+        width: 145px;
+        height: 145px;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .block_right_detalis {
+        padding-left: 10px;
+    }
+
+    .two_pictures img {
+        display: inline;
+        width: 85%;
+        height: 100%;
+        margin-left: 30px;
+        margin-top: 20px;
+        object-fit: cover;
+    }
+
+    .application_description, .text_information_full {
+        font-size: 22px;
+    }
+
+    .general_block {
+        margin-left: 30px;
+        margin-top: 60px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .data_cost {
+        display: flex;
+        flex-flow: column wrap;
+    }
+
+    .data_full {
+        order: 1;
+    }
+
+    .cost_full {
+        order: 2;
+        padding: 0px;
+        margin-top: 10px;
+    }
+
+    .links_full {
+        order: 4;
+    }
+
+    .discription_full {
+        order: 3;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .dev_avatar_img {
+        width: 300px;
+        height: 300px;
+    }
+    .dev_position {
+        font-size: 30px;
+    }
+
+    .dev_name {
+        font-size: 30px;
+        margin-top: 10px;
+    }
+    .img_full img {
+        width: 100%;
+        margin-top:70px;
+    }
+}
