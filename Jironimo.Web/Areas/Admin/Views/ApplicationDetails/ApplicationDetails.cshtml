@@ -85,10 +85,12 @@
                         @Html.DisplayFor(modelItem => applicationDetails.Description)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => applicationDetails.ImagePath)
+                       <img src="~/images/ApplicationDetails/@applicationDetails.ImagePath" style="width:100px;height:100px;object-fit:cover;">
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => applicationDetails.ImagePathTwo)
+                        @if(applicationDetails.ImagePathTwo!=null){
+                         <img src="~/images/ApplicationDetails/@applicationDetails.ImagePathTwo" style="width:100px;height:100px;object-fit:cover;">
+                        }
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => applicationDetails.PositionImage)

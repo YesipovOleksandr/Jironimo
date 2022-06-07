@@ -4,7 +4,7 @@
 @{
     ViewData["Title"] = "Developer";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
-    var developers =(List<Developer>)ViewBag.Developers;
+    var developers = (List<Developer>)ViewBag.Developers;
 }
 
 <div class="row">
@@ -57,13 +57,13 @@
                     @Html.DisplayFor(modelItem => item.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ImagePath)
+                    <img src="~/images/Developers/@item.ImagePath" style="width:100px;height:100px;object-fit:cover;">
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Position)
                 </td>
                 <td>
-                   <a href="/admin/developer/Delete?id=@item.Id" id="deleteBtn" class="btn bg-danger mr-1" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash-alt text-white"></i>Delete</a>
+                    <a href="/admin/developer/Delete?id=@item.Id" id="deleteBtn" class="btn bg-danger mr-1" onclick="return confirm('Are you sure you want to delete?');"><i class="fas fa-trash-alt text-white"></i>Delete</a>
                 </td>
             </tr>
         }

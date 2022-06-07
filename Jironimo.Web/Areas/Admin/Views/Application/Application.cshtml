@@ -79,9 +79,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
             <th>
@@ -109,25 +106,22 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ImagePath)
+                    <img src="~/images/Applications/@item.ImagePath" style="width:100px;height:100px;object-fit:cover;">
                 </td>
                 <th>
-                    @Html.DisplayNameFor(model => model.Price)
+                    @Html.DisplayFor(modelItem => item.Price)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.GooglePlayLink)
+                    @Html.DisplayFor(modelItem => item.GooglePlayLink)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.AppStoreLink)
+                    @Html.DisplayFor(modelItem => item.AppStoreLink)
                 </th>
                 <td>
                     @Html.DisplayFor(modelItem => item.Outsource)
