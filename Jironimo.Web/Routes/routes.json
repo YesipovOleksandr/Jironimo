@@ -145,6 +145,15 @@
       "url": "admin/application/delete/"
     },
     {
+      "name": "applicationDetailsDelete",
+      "controller": "ApplicationDetails",
+      "action": "Delete",
+      "languages": [
+        "en"
+      ],
+      "url": "admin/applicationDetails/delete/"
+    },
+    {
       "name": "developer",
       "controller": "Developer",
       "action": "Index",
