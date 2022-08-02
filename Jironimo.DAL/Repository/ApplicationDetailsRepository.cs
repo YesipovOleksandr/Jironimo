@@ -32,14 +32,16 @@ namespace Jironimo.DAL.Repository
 
         public ApplicationDetails GetById(Guid id)
         {
-            var applicationsDetailsEntity = _context.ApplicationDetails.Where(x => x.Id == id);
+            var applicationsDetailsEntity = _context.ApplicationDetails.FirstOrDefault(x => x.Id == id);
             var applicationsDetails = _mapper.Map<ApplicationDetails>(applicationsDetailsEntity);
             return applicationsDetails;
         }
 
         public void Delete(Guid id)
         {
-            _context.Remove(id);
+            var applicationDetails = _context.ApplicationDetails.Find(id);
+            if (applicationDetails != null)
+                _context.ApplicationDetails.Remove(applicationDetails);
         }
 
         public void Save()
