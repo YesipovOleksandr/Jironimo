@@ -16,7 +16,7 @@ namespace Jironimo.Web.Controllers
         private readonly IApplicationService _applicationService;
         private readonly IApplicationDetailsService _applicationDetaisService;
         private readonly IMapper _mapper;
-        private readonly List<TypeMarketViewModel> _typeMarketListViewModel = new List<TypeMarketViewModel>() { new TypeMarketViewModel { Name = "All", Value = "" }, new TypeMarketViewModel { Name = "Outsourse", Value = "true" }, new TypeMarketViewModel { Name = "Our products", Value = "false" } };
+        private readonly List<TypeMarketViewModel> _typeMarketListViewModel = new List<TypeMarketViewModel>() { new TypeMarketViewModel { Name = "All,", Value = "" }, new TypeMarketViewModel { Name = "Outsourse,", Value = "true" }, new TypeMarketViewModel { Name = "Our products", Value = "false" } };
         public HomeController(ILogger<HomeController> logger,
             IApplicationService applicationService,
             IMapper mapper,

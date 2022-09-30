@@ -61,7 +61,7 @@ namespace Jironimo.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to © Jironimo Studio 2022 — Ukraine.
+        ///   Looks up a localized string similar to © Jironimo 2022 — Ukraine.
         /// </summary>
         public static string footerName {
             get {
