@@ -4,6 +4,7 @@ using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Concrete;
 using Jironimo.Common.Models.Email;
+using Jironimo.DAL;
 using Jironimo.DAL.Context;
 using Jironimo.DAL.MappingProfile;
 using Jironimo.DAL.Repository;
@@ -21,8 +22,8 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("ProdConnection"));
-
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),
+    opt => opt.MigrationsAssembly("Jironimo.DAL"));
 });
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -97,4 +98,5 @@ var routesConfigurator = app.Services.GetService<IRoutesConfigurator>();
 
 app.UseEndpoints(routesConfigurator.BuildRoutesUsingTemplates);
 
+app.MigrateDatabase();
 app.Run();
