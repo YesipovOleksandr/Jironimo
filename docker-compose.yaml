@@ -1,0 +1,23 @@
+version: '2'
+services:
+   web:
+     build: .
+     container_name: web
+     ports:
+       - "7098:443"
+     environment:
+       ASPNETCORE_URLS: "https://+;http://+"
+       ASPNETCORE_HTTPS_PORT: "7098"
+       ASPNETCORE_ENVIRONMENT: "Development"
+       ASPNETCORE_Kestrel__Certificates__Default__Password: "frostiq1"
+       ASPNETCORE_Kestrel__Certificates__Default__Path: "/https/aspnetapp.pfx"
+     volumes:
+       - ${USERPROFILE}\.aspnet\https:/https/
+      
+   db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    ports: # not actually needed, because the two services are on the same network
+      - "1433:1433" 
+    environment:
+      - ACCEPT_EULA=y
+      - SA_PASSWORD=Frostiq1

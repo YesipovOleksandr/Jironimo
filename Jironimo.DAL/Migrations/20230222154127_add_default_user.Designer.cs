@@ -4,6 +4,7 @@ using Jironimo.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jironimo.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230222154127_add_default_user")]
+    partial class add_default_user
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -128,18 +130,6 @@ namespace Jironimo.DAL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Category");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("a02dcaba-77e1-4ecd-b209-3386c327c0bd"),
-                            Name = "Mobile"
-                        },
-                        new
-                        {
-                            Id = new Guid("10baee63-b751-4e4c-b218-c9d6d9df0432"),
-                            Name = "Web"
-                        });
                 });
 
             modelBuilder.Entity("Jironimo.DAL.Entities.Developer", b =>
@@ -188,9 +178,9 @@ namespace Jironimo.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d822c802-881b-47e3-8f73-5d8014d3ebe5"),
+                            Id = new Guid("c2b23810-36c0-46fc-aefb-83c5c937b8ec"),
                             Login = "admin",
-                            Password = "heG64OaMXpPxQyzXzwlbOlQHUSEmkz+/n70ZgSRCOolEF8OMg7zrgF8T5SjT/836"
+                            Password = "Frostiq1"
                         });
                 });
 

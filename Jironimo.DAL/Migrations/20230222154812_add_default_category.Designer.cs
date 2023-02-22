@@ -4,6 +4,7 @@ using Jironimo.DAL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Jironimo.DAL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230222154812_add_default_category")]
+    partial class add_default_category
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -132,12 +134,12 @@ namespace Jironimo.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("a02dcaba-77e1-4ecd-b209-3386c327c0bd"),
+                            Id = new Guid("37f8a2a5-2db6-4f78-af65-b52fd41fa11e"),
                             Name = "Mobile"
                         },
                         new
                         {
-                            Id = new Guid("10baee63-b751-4e4c-b218-c9d6d9df0432"),
+                            Id = new Guid("d4e968f5-7a79-4870-bf22-48771fec1d7c"),
                             Name = "Web"
                         });
                 });
@@ -188,9 +190,9 @@ namespace Jironimo.DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("d822c802-881b-47e3-8f73-5d8014d3ebe5"),
+                            Id = new Guid("85d38113-dfa8-4f42-a6da-829a7e0fadd6"),
                             Login = "admin",
-                            Password = "heG64OaMXpPxQyzXzwlbOlQHUSEmkz+/n70ZgSRCOolEF8OMg7zrgF8T5SjT/836"
+                            Password = "Frostiq1"
                         });
                 });
 
