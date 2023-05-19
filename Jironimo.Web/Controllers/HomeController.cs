@@ -50,6 +50,16 @@ namespace Jironimo.Web.Controllers
             return View(developers);
         }
 
+        public IActionResult Terms()
+        {
+            return View();
+        }
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
         [HttpGet("applicationDetails/{id:Guid}")]
         public IActionResult ApplicationDetails(Guid id)
         {
@@ -112,6 +122,7 @@ namespace Jironimo.Web.Controllers
 
             return View(categoryApplication);
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

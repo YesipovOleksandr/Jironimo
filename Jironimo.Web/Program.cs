@@ -1,10 +1,10 @@
+using System;
 using Jironimo.BLL.Services;
 using Jironimo.Common.Abstract;
 using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Concrete;
 using Jironimo.Common.Models.Email;
-using Jironimo.DAL;
 using Jironimo.DAL.Context;
 using Jironimo.DAL.MappingProfile;
 using Jironimo.DAL.Repository;
@@ -15,6 +15,7 @@ using Jironimo.Web.Providers;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
+using Jironimo.DAL;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -22,7 +23,7 @@ ConfigurationManager configuration = builder.Configuration;
 // Add services to the container.
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DockerConnection"),
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ProdConnection"),
     opt => opt.MigrationsAssembly("Jironimo.DAL"));
 });
 
@@ -72,8 +73,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-//app.UseMiddleware<TokenMiddleware>();
+app.UseAuthentication();
 
 app.UseRouting();
 
