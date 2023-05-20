@@ -60,14 +60,15 @@ namespace Jironimo.Web.Controllers
             return View();
         }
 
-        [HttpGet("applicationDetails/{id:Guid}")]
-        public IActionResult ApplicationDetails(Guid id)
+        [HttpGet("details/{nameProject}")]
+        public IActionResult Details(string nameProject)
         {
             ApplicationDetailsViewModel applicationDetailsViewModel = new ApplicationDetailsViewModel();
-            applicationDetailsViewModel.Application = _mapper.Map<ApplicationViewModel>(_applicationService.GetById(id));
-            applicationDetailsViewModel.Applications= _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
+            applicationDetailsViewModel.Application = _mapper.Map<ApplicationViewModel>(_applicationService.GetByName(nameProject));
+            applicationDetailsViewModel.Applications = _mapper.Map<List<ApplicationViewModel>>(_applicationService.GetAplications());
             applicationDetailsViewModel.Developers = _mapper.Map<List<DeveloperViewModel>>(_developerService.GetDevelopersByApplicationId(applicationDetailsViewModel.Application.Id));
-            applicationDetailsViewModel.ApplicationDetails = _mapper.Map<List<ApplicationDetailsModel>>(_applicationDetaisService.GetAplicationsDetailsById(id));
+            applicationDetailsViewModel.Applications = applicationDetailsViewModel.Applications.Where(x => x.Title != nameProject).ToList();
+            applicationDetailsViewModel.ApplicationDetails = _mapper.Map<List<ApplicationDetailsModel>>(_applicationDetaisService.GetAplicationsDetailsByName(nameProject));
             return View(applicationDetailsViewModel);
         }
         

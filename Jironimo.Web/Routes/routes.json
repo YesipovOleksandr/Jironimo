@@ -55,13 +55,13 @@
       "url": "work"
     },
     {
-      "name": "applicationDetails",
+      "name": "details",
       "controller": "Home",
-      "action": "ApplicationDetails",
+      "action": "details",
       "languages": [
         "en"
       ],
-      "url": "applicationDetails"
+      "url": "details"
     },
     {
       "name": "service",

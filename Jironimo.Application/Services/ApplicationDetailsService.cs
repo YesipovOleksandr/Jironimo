@@ -1,6 +1,7 @@
 ﻿using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Abstract.Services;
 using Jironimo.Common.Models.Aplications;
+using System;
 
 namespace Jironimo.BLL.Services
 {
@@ -38,5 +39,9 @@ namespace Jironimo.BLL.Services
             return _applicationDetailsRepository.GetByIdByApplication(applicationId);
         }
 
+        public List<ApplicationDetails> GetAplicationsDetailsByName(string nameProject)
+        {
+            return _applicationDetailsRepository.GetAplicationsDetailsByName(nameProject);
+        }
     }
 }

@@ -4,6 +4,7 @@ using Jironimo.Common.Abstract.Repository;
 using Jironimo.Common.Models.Aplications;
 using Jironimo.DAL.Context;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace Jironimo.DAL.Repository
 {
@@ -36,6 +37,13 @@ namespace Jironimo.DAL.Repository
         public Application GetById(Guid applicationId)
         {
             var applicationsEntity = _context.Applications.FirstOrDefault(x => x.Id == applicationId);
+            var application = _mapper.Map<Application>(applicationsEntity);
+            return application;
+        }
+
+        public Application GetByName(string nameProject)
+        {
+            var applicationsEntity = _context.Applications.FirstOrDefault(x => x.Title == nameProject);
             var application = _mapper.Map<Application>(applicationsEntity);
             return application;
         }

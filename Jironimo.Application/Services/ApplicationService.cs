@@ -44,6 +44,11 @@ namespace Jironimo.BLL.Services
             return _applicationRepository.GetById(applicationId);
         }
 
+        public Application GetByName(string nameProject)
+        {
+            return _applicationRepository.GetByName(nameProject);
+        }      
+
         public void DeleteById(Guid id)
         {
             _applicationRepository.DeleteById(id);

@@ -16,14 +16,14 @@
             <div class="titlle_full">
                 @Model.Application.Title
             </div>
-            <div class="data_cost">
+        @*    <div class="data_cost">
                 <div class="data_full">
                     @Model.Application.CategoryName - @Datetime.GetCreatedAt(Model.Application.CreatedAt)
                 </div>
                 <div class="cost_full">
                     Cost of a similar project ≈ $@Model.Application.Price
                 </div>
-            </div>
+            </div>*@
             <div class="links_full">
                 @if (@Model.Application.AppStoreLink != null)
                 {

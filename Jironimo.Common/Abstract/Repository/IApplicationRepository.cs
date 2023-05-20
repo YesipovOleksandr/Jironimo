@@ -6,6 +6,8 @@ namespace Jironimo.Common.Abstract.Repository
     {
         List<Application> GetAll();
         Application GetById(Guid applicationId);
+        Application GetByName(string nameProject);
+        
         List<Application> GetAplicationsWithDetails();
         Guid Create(Application application);
         List<Application> GetByCategoryId(Guid categoryId);

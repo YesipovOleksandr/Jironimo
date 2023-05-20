@@ -7,6 +7,7 @@ namespace Jironimo.Common.Abstract.Services
         void Create(Application application, List<Guid> developersIds);
         List<Application> GetAplications();
         Application GetById(Guid applicationId);
+        Application GetByName(string nameProject);
         List<Application> GetAplicationsWithDetails();
         List<Application> GetByCategoryId(Guid categoryId);
         void DeleteById(Guid id);

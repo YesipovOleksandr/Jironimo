@@ -101,8 +101,4 @@ $(window).scroll(function () {
         $('#grey').addClass('animationGrey');
         $('#pink').addClass('animationPink');
     }
-    else {
-        $('#grey').removeClass('animationGrey');
-        $('#pink').removeClass('animationPink');
-    }
 }); 
