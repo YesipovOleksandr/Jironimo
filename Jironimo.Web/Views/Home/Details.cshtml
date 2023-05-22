@@ -24,6 +24,9 @@
                     Cost of a similar project ≈ $@Model.Application.Price
                 </div>
             </div>*@
+            <div class="discription_full">
+                @Model.Application.Description
+            </div>
             <div class="links_full">
                 @if (@Model.Application.AppStoreLink != null)
                 {
@@ -34,9 +37,7 @@
                     <a href="@Model.Application.GooglePlayLink"> Google Play<img class="img_up" src="/icons/upArrowRight.svg"></a>
                 }
             </div>
-            <div class="discription_full">
-                @Model.Application.Description
-            </div>
+          
         </div>
     </div>
 

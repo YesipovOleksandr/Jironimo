@@ -8,28 +8,9 @@
     @foreach (var item in Model)
     {
         <div class="application">
-            <div class="application_block @(isPositionRight?"left":"right block_right")">
-                <div class="application_data">
-                    <span>
-                        @item.CategoryName - @Datetime.GetCreatedAt(item.CreatedAt)
-                    </span>
-                </div>
-                <div class="application_title">
-                    @item.Title
-                </div>
-                <div class="application_description">
-                    @item.Description
-                </div>
-                <div class="application_view">
-                    <a href="/details/@item.Title">
-                        View
-                        <img class="img_right" src="~/icons/upArrowRight.svg" />
-                    </a>
-                </div>
-            </div>
-            <div class="application_image @(isPositionRight?"right":"left")">
+            <div class="application_image">
                 <a href="/details/@item.Title">
-                     <img class="@(isPositionRight?"right":"left")" src="~/images/Applications/@item.ImagePath" alt="" />
+                     <img class="" src="~/images/Applications/@item.ImagePath" alt="" />
                 </a>
             </div>
         </div>

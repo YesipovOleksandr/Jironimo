@@ -1,7 +1,8 @@
 ﻿
 .black_fon {
     background-color: #131313;
-    height: 950px;
+    height: 100vh;
+    position:relative;
 }
 
 .large_text {
@@ -12,7 +13,7 @@
     height: 231px;
     position: absolute;
     right: 49%;
-    top: 25%;
+    top: 20%;
     z-index: 2;
     max-width:600px;
 }
@@ -26,17 +27,17 @@
     height: 75px;
     position: absolute;
     right: 69%;
-    top: 110%;
+    top: 80%;
     
 }
 
 .animationGrey {
-    top: 30% !important;
+    top: 18% !important;
     transition: 3s;
 }
 
 .animationPink {
-    top: 63% !important;
+    top: 50% !important;
     transition: 3s;
 }
 
@@ -49,7 +50,7 @@
     border-radius: 48px;
     position: absolute;
     right: 23%;
-    top: 25%;
+    top: 13%;
     z-index: 1;
 }
 
@@ -61,7 +62,7 @@
     opacity: 50%;
     border-radius: 36px;
     position: absolute;
-    top: 70%;
+    top: 57%;
     right: 15%;
     z-index: 0;
 }
