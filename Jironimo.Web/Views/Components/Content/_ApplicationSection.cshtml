@@ -28,7 +28,9 @@
                 </div>
             </div>
             <div class="application_image @(isPositionRight?"right":"left")">
-                <img class="@(isPositionRight?"right":"left")" src="~/images/Applications/@item.ImagePath" alt="" />
+                <a href="/details/@item.Title">
+                     <img class="@(isPositionRight?"right":"left")" src="~/images/Applications/@item.ImagePath" alt="" />
+                </a>
             </div>
         </div>
         isPositionRight = !isPositionRight;

@@ -51,11 +51,17 @@
     color: #FFFFFF;
     font-size: 20px;
     font-weight: 400;
+    display:flex;
 }
+    .logo img{
+height:25px;
+margin-right:5px;
+    }
 
-.header_burger {
-    display: none;
-}
+
+    .header_burger {
+        display: none;
+    }
 
 .header_menu {
 }
