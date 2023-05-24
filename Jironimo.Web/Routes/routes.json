@@ -91,6 +91,15 @@
       "url": "admin/category"
     },
     {
+      "name": "editCategory",
+      "controller": "Category",
+      "action": "Edit",
+      "languages": [
+        "en"
+      ],
+      "url": "admin/category/Edit"
+    },
+    {
       "name": "create",
       "controller": "Category",
       "action": "Create",

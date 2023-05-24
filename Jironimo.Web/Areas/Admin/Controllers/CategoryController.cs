@@ -43,6 +43,31 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             return View("~/Areas/Admin/Views/Category/Category.cshtml", model);
         }
 
+        public ActionResult Edit(Guid id)
+        {
+            var category = _categoryService.GetCategories().FirstOrDefault(x=>x.Id==id);
+            return View("~/Areas/Admin/Views/Category/Edit.cshtml", category);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Category model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var category = _mapper.Map<Category>(model);
+                    _categoryService.Update(category);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         public ActionResult Delete(Guid id)
         {
             _categoryService.DeleteById(id);

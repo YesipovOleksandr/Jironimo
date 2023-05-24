@@ -22,6 +22,12 @@ namespace Jironimo.DAL.Repository
             _context.Category.Add(category);
         }
 
+        public void Updade(Category item)
+        {
+            var category = _mapper.Map<Entities.Category>(item);
+            _context.Category.Update(category);
+        }
+
         public void Delete(Guid id)
         {
             var category = _context.Category.Find(id);

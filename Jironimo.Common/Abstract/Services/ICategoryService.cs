@@ -6,6 +6,7 @@ namespace Jironimo.Common.Abstract.Services
     {
         List<Category> GetCategories();
         void Create(Category category);
+        void Update(Category category);     
         void DeleteById(Guid id);
     }
 }

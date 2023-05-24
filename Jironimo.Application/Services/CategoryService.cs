@@ -27,6 +27,12 @@ namespace Jironimo.BLL.Services
             }
         }
 
+        public void Update(Category category)
+        {
+            _categoryRepository.Updade(category);
+            _categoryRepository.Save();
+        }
+
         public void DeleteById(Guid id)
         {
             _categoryRepository.Delete(id);

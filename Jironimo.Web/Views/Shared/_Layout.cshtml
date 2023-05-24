@@ -8,7 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="~/css/Heder.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Footer.css" asp-append-version="true" />
-     <link rel="stylesheet" href="~/css/ContactForm.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/ContactForm.css" asp-append-version="true" />
+    <link rel="icon" href="~/icons/logo.png">
     @RenderSection("Styles", false)
 </head>
 <body>
@@ -16,7 +17,7 @@
     <div class="container">
         @RenderBody()
     </div>
-     @await Html.PartialAsync("~/Views/Shared/Pop-up/_ContactForm.cshtml",new ContactFromViewModel())
+    @await Html.PartialAsync("~/Views/Shared/Pop-up/_ContactForm.cshtml",new ContactFromViewModel())
     @await Html.PartialAsync("~/Views/Shared/Footers/_Footer.cshtml")
      
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

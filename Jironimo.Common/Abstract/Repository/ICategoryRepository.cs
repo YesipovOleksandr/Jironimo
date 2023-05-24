@@ -1,9 +1,4 @@
 ﻿using Jironimo.Common.Models.Aplications;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Jironimo.Common.Abstract.Repository
 {
@@ -11,7 +6,8 @@ namespace Jironimo.Common.Abstract.Repository
     {
         Category Get(Guid CategoryId);
         List<Category> GetAll();
-        void Create(Category item); 
+        void Create(Category item);
+        void Updade(Category item); 
         void Delete(Guid id);
         void Save();
     }
