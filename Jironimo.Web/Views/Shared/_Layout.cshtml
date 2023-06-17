@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/Footer.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/ContactForm.css" asp-append-version="true" />
     <link rel="icon" href="~/icons/logo.png">
+    @await Html.PartialAsync("~/Views/Shared/GoogleAnalytics/_GoogleAnalytics.cshtml")
     @RenderSection("Styles", false)
 </head>
 <body>
