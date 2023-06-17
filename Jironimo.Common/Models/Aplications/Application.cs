@@ -1,6 +1,4 @@
-﻿using Jironimo.Common.Models.Developers;
-using Jironimo.Common.Models.ApplicationDeveloper;
-namespace Jironimo.Common.Models.Aplications
+﻿namespace Jironimo.Common.Models.Aplications
 {
     public class Application
     {

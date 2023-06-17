@@ -1,0 +1,70 @@
+﻿@using Jironimo.Common.Models.Aplications;
+@using Jironimo.Web.ViewModels;
+@model ApplicationEditViewModel
+@{
+    ViewData["Title"] = "View";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    var categories = (List<CategoryViewModel>)ViewBag.Categories;
+}
+
+@section Scripts
+{
+    <script src="~/js/applicationEdit.js" asp-append-version="true"></script>
+}
+
+<h4>Category</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller ="Application" asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <img id="applicationImage" src="~/images/Applications/@Model.ImagePath" style="width:300px;height:200px;object-fit:contain;">
+                <input asp-for="ImagePath" type="hidden" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFormFile" class="control-label"></label>
+                <input id="applicationImagePath" asp-for="ImageFormFile" type="file" class="form-control" />
+                <span asp-validation-for="ImageFormFile" class="text-danger"></span>                
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GooglePlayLink" class="control-label"></label>
+                <input asp-for="GooglePlayLink" class="form-control" />
+                <span asp-validation-for="GooglePlayLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppStoreLink" class="control-label"></label>
+                <input asp-for="AppStoreLink" class="form-control" />
+                <span asp-validation-for="AppStoreLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select class="form-select" asp-items="@(new SelectList(categories, "Id", "Name"))" asp-for="CategoryId"></select><br /><br />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

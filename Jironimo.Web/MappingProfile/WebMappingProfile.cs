@@ -26,13 +26,12 @@ namespace Jironimo.Web.MappingProfile
             CreateMap<ApplicationDetailsCreateViewModel, ApplicationDetails>();
             
             //admin            
-            CreateMap<ApplicationCreateViewModel, Application>(); 
+            CreateMap<ApplicationCreateViewModel, Application>();
+            CreateMap<Application, ApplicationEditViewModel>().ReverseMap();
             CreateMap<CategoryCreateViewModel, Category>().ReverseMap();
             CreateMap<DeveloperCreateViewModel, Developer>().ReverseMap();
             CreateMap<Developer, DeveloperListSelect>().ReverseMap();
-            
-
-
+        
         }
     }
 }

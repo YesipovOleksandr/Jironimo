@@ -39,6 +39,13 @@ namespace Jironimo.BLL.Services
             }
         }
 
+        public void Update(Application model)
+        {
+            model.CreatedAt = DateTime.Now;
+            _applicationRepository.Update(model);
+            _applicationRepository.Save();
+        }
+
         public Application GetById(Guid applicationId)
         {
             return _applicationRepository.GetById(applicationId);
@@ -69,5 +76,6 @@ namespace Jironimo.BLL.Services
         {
             return _applicationRepository.GetByCategoryId(categoryId);
         }
+
     }
 }

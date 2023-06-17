@@ -68,7 +68,6 @@
     -webkit-transition: all 1s ease-out;
 }
     .application_image img:hover {
-        width: 67%;
         -webkit-transform: scale(1.1);
         -moz-transform: scale(1.1);
         -o-transform: scale(1.1);

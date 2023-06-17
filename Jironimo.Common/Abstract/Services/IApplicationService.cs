@@ -1,10 +1,12 @@
 ﻿using Jironimo.Common.Models.Aplications;
+using Microsoft.VisualBasic;
 
 namespace Jironimo.Common.Abstract.Services
 {
     public interface IApplicationService
     {
-        void Create(Application application, List<Guid> developersIds);
+        void Create(Application model, List<Guid> developersIds);
+        void Update(Application model);
         List<Application> GetAplications();
         Application GetById(Guid applicationId);
         Application GetByName(string nameProject);

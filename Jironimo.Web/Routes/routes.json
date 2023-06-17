@@ -145,6 +145,15 @@
       "url": "admin/application/create"
     },
     {
+      "name": "applicationEdit",
+      "controller": "Application",
+      "action": "Edit",
+      "languages": [
+        "en"
+      ],
+      "url": "admin/Application/edit"
+    },
+    {
       "name": "applicationDelete",
       "controller": "Application",
       "action": "Delete",

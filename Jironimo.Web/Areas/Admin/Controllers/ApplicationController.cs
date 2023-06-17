@@ -68,6 +68,36 @@ namespace Jironimo.Web.Areas.Admin.Controllers
             return View("~/Areas/Admin/Views/Application/Application.cshtml", model);
         }
 
+        public ActionResult Edit(Guid id)
+        {
+            var application = _mapper.Map<ApplicationEditViewModel>(_applicationService.GetById(id));
+            ViewBag.Categories = _mapper.Map<List<CategoryViewModel>>(_categoryService.GetCategories());
+            return View("~/Areas/Admin/Views/Application/Edit.cshtml", application);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(ApplicationEditViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var application = _mapper.Map<Application>(model);
+                    if (model.ImageFormFile != null)
+                    {
+                        application.ImagePath = await _imageUploadService.UploadImage(model.ImageFormFile, "/images/Applications/");
+                    }
+                    _applicationService.Update(application);
+                    return RedirectToAction(nameof(Index));
+                }
+                catch
+                {
+                    return RedirectToAction(nameof(Index));
+                }
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
         public ActionResult Delete(Guid id)
         {
             var application = _applicationService.GetById(id);
